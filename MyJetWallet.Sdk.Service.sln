@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyJetWallet.Sdk.Service", "src\MyJetWallet.Sdk.Service\MyJetWallet.Sdk.Service.csproj", "{63388B9D-FC53-4A06-9485-61A537D74025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63388B9D-FC53-4A06-9485-61A537D74025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63388B9D-FC53-4A06-9485-61A537D74025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63388B9D-FC53-4A06-9485-61A537D74025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63388B9D-FC53-4A06-9485-61A537D74025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FAC3710-7C8F-4815-A4AF-FC6EC85C44BD}
+	EndGlobalSection
+EndGlobal
