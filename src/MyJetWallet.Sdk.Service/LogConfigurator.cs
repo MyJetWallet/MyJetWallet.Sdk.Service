@@ -61,6 +61,7 @@ namespace MyJetWallet.Sdk.Service
         private static void SetupProperty(string productName, LoggerConfiguration config)
         {
             config
+                .Enrich.FromLogContext()
                 .Enrich.WithProperty("app-name", ApplicationEnvironment.AppName)
                 .Enrich.WithProperty("app-version", ApplicationEnvironment.AppVersion)
                 .Enrich.WithProperty("host-name", ApplicationEnvironment.HostName ?? ApplicationEnvironment.UserName)
