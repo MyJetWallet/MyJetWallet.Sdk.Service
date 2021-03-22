@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -60,6 +61,7 @@ namespace MyJetWallet.Sdk.Service
 
         private static void SetupProperty(string productName, LoggerConfiguration config)
         {
+            Activity.DefaultIdFormat = ActivityIdFormat.W3C;
             config
                 .Enrich.FromLogContext()
                 .Enrich.WithProperty("app-name", ApplicationEnvironment.AppName)
