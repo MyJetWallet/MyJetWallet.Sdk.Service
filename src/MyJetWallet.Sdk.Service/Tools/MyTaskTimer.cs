@@ -9,7 +9,7 @@ namespace MyJetWallet.Sdk.Service.Tools
     public class MyTaskTimer: IStartable, IDisposable
     {
         private readonly string _owner;
-        private readonly TimeSpan _interval;
+        private TimeSpan _interval;
         private readonly ILogger _logger;
         private readonly Func<Task> _doProcess;
         private readonly CancellationTokenSource _token = new();
@@ -30,6 +30,11 @@ namespace MyJetWallet.Sdk.Service.Tools
         public static MyTaskTimer Create<T>(TimeSpan interval, ILogger logger, Func<Task> doProcess)
         {
             return new MyTaskTimer(typeof(T), interval, logger, doProcess);
+        }
+
+        public void ChangeInterval(TimeSpan interval)
+        {
+            _interval = interval;
         }
 
         public void Start()
