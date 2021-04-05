@@ -27,9 +27,6 @@ using:
 
 use new source:
 ```
-
-```
-
 private static readonly ActivitySource MyActivitySource = new ActivitySource("MyTestSource");
 
 ...
