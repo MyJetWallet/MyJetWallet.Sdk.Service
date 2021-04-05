@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.Json;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -101,6 +102,22 @@ namespace MyJetWallet.Sdk.Service
             activity.RecordException(ex);
             
 
+            return activity;
+        }
+
+        [CanBeNull]
+        public static Activity AddToActivityAsJsonTag(this object obj, string tag)
+        {
+            var activity = Activity.Current;
+            activity?.AddTag(tag, JsonSerializer.Serialize(obj));
+            return activity;
+        }
+
+        [CanBeNull]
+        public static Activity AddToActivityAsTag(this object obj, string tag)
+        {
+            var activity = Activity.Current;
+            activity?.AddTag(tag, obj);
             return activity;
         }
 
