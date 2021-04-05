@@ -49,13 +49,20 @@ namespace MyJetWallet.Sdk.Service.Tools
             {
                 while (!_token.IsCancellationRequested)
                 {
-                    try
+                    using (var activity = MyTelemetry.StartActivity($"Timer:{_owner}"))
                     {
-                        await _doProcess();
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, $"Unhandled exception from DoProcess in MyTaskTimer[{_owner}]");
+                        activity?.SetTag("MyTaskTimer", _owner);
+                        activity?.SetTag("MyTaskTimer.interval", _interval.ToString());
+                        try
+                        {
+                            await _doProcess();
+                        }
+                        catch (Exception ex)
+                        {
+                            ex.FailActivity();
+
+                            _logger.LogError(ex, $"Unhandled exception from DoProcess in MyTaskTimer[{_owner}]");
+                        }
                     }
 
                     await Task.Delay(_interval, _token.Token);
