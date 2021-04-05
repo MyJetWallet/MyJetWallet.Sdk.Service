@@ -67,6 +67,12 @@ namespace MyJetWallet.Sdk.Service
                             options.UseShortTraceIds = true;
                             options.ExportProcessorType = ExportProcessorType.Batch;
                         });
+
+                        Console.WriteLine("Telemetry to Zipkin - ACTIVE");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Telemetry to Zipkin - DISABLED");
                     }
                 });
 

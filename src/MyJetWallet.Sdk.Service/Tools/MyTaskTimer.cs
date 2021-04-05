@@ -15,6 +15,8 @@ namespace MyJetWallet.Sdk.Service.Tools
         private readonly CancellationTokenSource _token = new();
         private Task _process;
 
+        public bool IsTelemetryActive { get; set; } = true;
+
         public MyTaskTimer(string owner, TimeSpan interval, ILogger logger, Func<Task> doProcess)
         {
             _owner = owner;
@@ -49,10 +51,12 @@ namespace MyJetWallet.Sdk.Service.Tools
             {
                 while (!_token.IsCancellationRequested)
                 {
-                    using (var activity = MyTelemetry.StartActivity($"Timer:{_owner}"))
+                    if (IsTelemetryActive)
                     {
+                        using var activity = MyTelemetry.StartActivity($"Timer:{_owner}");
                         activity?.SetTag("MyTaskTimer", _owner);
                         activity?.SetTag("MyTaskTimer.interval", _interval.ToString());
+
                         try
                         {
                             await _doProcess();
@@ -60,7 +64,17 @@ namespace MyJetWallet.Sdk.Service.Tools
                         catch (Exception ex)
                         {
                             ex.FailActivity();
-
+                            _logger.LogError(ex, $"Unhandled exception from DoProcess in MyTaskTimer[{_owner}]");
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            await _doProcess();
+                        }
+                        catch (Exception ex)
+                        {
                             _logger.LogError(ex, $"Unhandled exception from DoProcess in MyTaskTimer[{_owner}]");
                         }
                     }
@@ -83,6 +97,12 @@ namespace MyJetWallet.Sdk.Service.Tools
         public void Dispose()
         {
             Stop();
+        }
+
+        public MyTaskTimer DisableTelemetry()
+        {
+            IsTelemetryActive = false;
+            return this;
         }
     }
 }
