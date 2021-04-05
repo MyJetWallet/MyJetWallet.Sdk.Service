@@ -42,6 +42,7 @@ namespace MyJetWallet.Sdk.Service
                         .SetSampler(new AlwaysOnSampler())
                         .AddSource(ApplicationEnvironment.AppName)
                         .AddGrpcClientInstrumentation()
+                        .AddProcessor(new MyExceptionProcessor())
                         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(ApplicationEnvironment.AppName));
 
                     if (errorStatusOnException)
@@ -85,8 +86,20 @@ namespace MyJetWallet.Sdk.Service
             if (activity == null) return activity;
             
             activity.RecordException(ex);
-            activity.SetTag("exception", ex.ToString());
             activity.SetStatus(Status.Error);
+
+            return activity;
+        }
+
+        [CanBeNull]
+        public static Activity WriteToActivity(this Exception ex)
+        {
+            var activity = Activity.Current;
+
+            if (activity == null) return activity;
+
+            activity.RecordException(ex);
+            
 
             return activity;
         }
