@@ -42,6 +42,7 @@ namespace MyJetWallet.Sdk.Service
                         })
                         .SetSampler(new AlwaysOnSampler())
                         .AddSource(ApplicationEnvironment.AppName)
+                        .AddSource("MyJetWallet")
                         .AddGrpcClientInstrumentation()
                         .AddProcessor(new MyExceptionProcessor())
                         .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(ApplicationEnvironment.AppName));
