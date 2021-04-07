@@ -26,7 +26,6 @@ namespace MyJetWallet.Sdk.Service
                     builder
                         .AddAspNetCoreInstrumentation(options =>
                         {
-                            Console.WriteLine(options.RecordException);
                             options.RecordException = true;
                             options.Filter = context =>
                             {
