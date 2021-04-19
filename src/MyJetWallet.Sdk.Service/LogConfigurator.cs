@@ -1,15 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.Elasticsearch;
 
 namespace MyJetWallet.Sdk.Service
 {
     public static class LogConfigurator
     {
+        public static ILoggerFactory ConfigureElk(
+            string productName = default,
+            string seqServiceUrl = default,
+            string[] elkUrls = null,
+            string elkIndexPrefix = "jet-logs-def")
+        {
+            Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
+            Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
+
+            IConfigurationRoot configRoot = BuildConfigRoot();
+
+            var config = new LoggerConfiguration()
+                .ReadFrom.Configuration(configRoot)
+                .Enrich.FromLogContext()
+                .Enrich.WithExceptionData()
+                .Enrich.WithCorrelationIdHeader();
+
+            SetupProperty(productName, config);
+
+            SetupConsole(configRoot, config);
+
+            SetupSeq(configRoot, config, seqServiceUrl);
+
+            if (elkUrls?.Any() == true)
+            {
+                config.WriteTo.Elasticsearch(
+                    new ElasticsearchSinkOptions(elkUrls.Select(u => new Uri(u)))
+                    {
+                        AutoRegisterTemplate = true,
+                        EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
+                        AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+                        IndexDecider = (e, o) => $"{elkIndexPrefix}-{o.Date:yyyy-MM-dd}"
+                    });
+
+                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {elkIndexPrefix}-yyyy-MM-dd");
+            }
+
+
+
+            Log.Logger = config.CreateLogger();
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                Log.Fatal((Exception)e.ExceptionObject, "Application has been terminated unexpectedly");
+                Log.CloseAndFlush();
+            };
+            AppDomain.CurrentDomain.ProcessExit += (sender, e) =>
+            {
+                Log.CloseAndFlush();
+            };
+
+            return new LoggerFactory().AddSerilog();
+        }
+
         public static ILoggerFactory Configure(
             string productName = default,
             string seqServiceUrl = default)
