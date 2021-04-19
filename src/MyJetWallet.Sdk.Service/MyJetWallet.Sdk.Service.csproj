@@ -4,6 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
     <OutputType>Library</OutputType>
     <IsPackable>true</IsPackable>
+    <PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</RepositoryUrl>
+
   </PropertyGroup>
 
   <ItemGroup>
