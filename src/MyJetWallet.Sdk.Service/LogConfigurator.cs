@@ -232,12 +232,6 @@ namespace MyJetWallet.Sdk.Service
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("TraceId", new ScalarValue(activity.GetTraceId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("ParentId", new ScalarValue(activity.GetParentId())));
             }
-            else
-            {
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("SpanId", new ScalarValue("")));
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("TraceId", new ScalarValue("")));
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("ParentId", new ScalarValue("")));
-            }
         }
     }
 
