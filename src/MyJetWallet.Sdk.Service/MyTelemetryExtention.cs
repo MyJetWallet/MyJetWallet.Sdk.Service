@@ -13,7 +13,19 @@ namespace MyJetWallet.Sdk.Service
 {
     public static class MyTelemetry
     {
-        public static readonly ActivitySource Source = new ActivitySource(ApplicationEnvironment.AppName);
+        public static readonly ActivitySource Source;
+
+        static MyTelemetry()
+        {
+            Source = new ActivitySource(ApplicationEnvironment.AppName);
+
+            ActivitySource.AddActivityListener(new ActivityListener
+            {
+                ShouldListenTo = s => true,
+                SampleUsingParentId = (ref ActivityCreationOptions<string> activityOptions) => ActivitySamplingResult.AllData,
+                Sample = (ref ActivityCreationOptions<ActivityContext> activityOptions) => ActivitySamplingResult.AllData
+            });
+        }
 
         public static IServiceCollection AddMyTelemetry(this IServiceCollection services,
             string zipkinEndpoint = null,
