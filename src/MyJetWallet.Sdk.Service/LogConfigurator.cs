@@ -232,6 +232,7 @@ namespace MyJetWallet.Sdk.Service
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Trace_Id", new ScalarValue(activity.GetTraceId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Parent_Id", new ScalarValue(activity.GetParentId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Id", new ScalarValue(activity.GetActivityId())));
+                logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Duration", new ScalarValue(activity.GetActivityDuration())));
             }
         }
     }
@@ -271,6 +272,11 @@ namespace MyJetWallet.Sdk.Service
         public static string GetActivityId(this Activity activity)
         {
             return activity.Id;
+        }
+
+        public static TimeSpan GetActivityDuration(this Activity activity)
+        {
+            return activity.Duration;
         }
     }
 }
