@@ -3,7 +3,7 @@ using MyYamlParser;
 
 namespace MyJetWallet.Sdk.Service
 {
-    public class ElkLogSettings
+    public class LogElkSettings
     {
         [YamlProperty("Urls")]
         public Dictionary<string, string> Urls { get; set; }
