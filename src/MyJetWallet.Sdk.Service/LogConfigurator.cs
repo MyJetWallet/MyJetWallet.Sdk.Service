@@ -5,6 +5,7 @@ using System.Linq;
 using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -61,8 +62,18 @@ namespace MyJetWallet.Sdk.Service
 
             if (logElkSettings?.Urls?.Any() == true)
             {
+                var number = 0;
+
+                if (logElkSettings?.Urls.Count > 1)
+                {
+                    var rnd = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+                    number = rnd.Next(logElkSettings.Urls.Count);
+                }
+
+                var url = logElkSettings.Urls.Values.ToArray()[number];
+
                 config.WriteTo.Elasticsearch(
-                    new ElasticsearchSinkOptions(logElkSettings.Urls.Values.Select(u => new Uri(u)))
+                    new ElasticsearchSinkOptions(new Uri(url))
                     {
                         AutoRegisterTemplate = true,
                         EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
@@ -81,7 +92,7 @@ namespace MyJetWallet.Sdk.Service
                         }
                     });
 
-                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {prefix}-yyyy-MM-dd");
+                Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Number: {number} ({url}). Index name: {prefix}-yyyy-MM-dd");
             }
         }
 
