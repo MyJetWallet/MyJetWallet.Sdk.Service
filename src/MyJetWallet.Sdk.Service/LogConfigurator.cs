@@ -2,21 +2,37 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MyYamlParser;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.Elasticsearch;
 
 namespace MyJetWallet.Sdk.Service
 {
+    public class ElkLogSettings
+    {
+        [YamlProperty("Urls")]
+        public Dictionary<string, string> Urls { get; set; }
+
+        [YamlProperty("IndexPrefix", "jet-logs-def")]
+        public string IndexPrefix { get; set; } = "jet-logs-def";
+
+        [YamlProperty("User")]
+        public string User { get; set; }
+
+        [YamlProperty("Password")]
+        public string Password { get; set; }
+    }
+
     public static class LogConfigurator
     {
         public static ILoggerFactory ConfigureElk(
             string productName = default,
             string seqServiceUrl = default,
-            string[] elkUrls = null,
-            string elkIndexPrefix = "jet-logs-def")
+            ElkLogSettings elkSettings = null)
         {
             Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
             Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
@@ -35,21 +51,7 @@ namespace MyJetWallet.Sdk.Service
 
             SetupSeq(configRoot, config, seqServiceUrl);
 
-            if (elkUrls?.Any() == true)
-            {
-                config.WriteTo.Elasticsearch(
-                    new ElasticsearchSinkOptions(elkUrls.Select(u => new Uri(u)))
-                    {
-                        AutoRegisterTemplate = true,
-                        EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
-                        AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
-                        IndexDecider = (e, o) => $"{elkIndexPrefix}-{o.Date:yyyy-MM-dd}"
-                    });
-
-                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {elkIndexPrefix}-yyyy-MM-dd");
-            }
-
-
+            SetupElk(elkSettings, config);
 
             Log.Logger = config.CreateLogger();
 
@@ -64,6 +66,34 @@ namespace MyJetWallet.Sdk.Service
             };
 
             return new LoggerFactory().AddSerilog();
+        }
+
+        private static void SetupElk(ElkLogSettings elkSettings, LoggerConfiguration config)
+        {
+            if (elkSettings?.Urls?.Any() == true)
+            {
+                config.WriteTo.Elasticsearch(
+                    new ElasticsearchSinkOptions(elkSettings.Urls.Values.Select(u => new Uri(u)))
+                    {
+                        AutoRegisterTemplate = true,
+                        EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
+                        AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+                        IndexDecider = (e, o) => $"{elkSettings.IndexPrefix}-{o.Date:yyyy-MM-dd}",
+                        ModifyConnectionSettings = configuration =>
+                        {
+                            configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
+
+                            if (!string.IsNullOrEmpty(elkSettings.User))
+                            {
+                                configuration.BasicAuthentication(elkSettings.User, elkSettings.Password);
+                            }
+
+                            return configuration;
+                        }
+                    });
+
+                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {elkSettings.IndexPrefix}-yyyy-MM-dd");
+            }
         }
 
         public static ILoggerFactory Configure(
