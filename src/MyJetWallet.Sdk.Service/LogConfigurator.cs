@@ -5,34 +5,18 @@ using System.Linq;
 using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using MyYamlParser;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.Elasticsearch;
 
 namespace MyJetWallet.Sdk.Service
 {
-    public class ElkLogSettings
-    {
-        [YamlProperty("Urls")]
-        public Dictionary<string, string> Urls { get; set; }
-
-        [YamlProperty("IndexPrefix", "jet-logs-def")]
-        public string IndexPrefix { get; set; } = "jet-logs-def";
-
-        [YamlProperty("User")]
-        public string User { get; set; }
-
-        [YamlProperty("Password")]
-        public string Password { get; set; }
-    }
-
     public static class LogConfigurator
     {
         public static ILoggerFactory ConfigureElk(
             string productName = default,
             string seqServiceUrl = default,
-            ElkLogSettings elkSettings = null)
+            LogElkSettings logElkSettings = null)
         {
             Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
             Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
@@ -51,7 +35,7 @@ namespace MyJetWallet.Sdk.Service
 
             SetupSeq(configRoot, config, seqServiceUrl);
 
-            SetupElk(elkSettings, config);
+            SetupElk(logElkSettings, config);
 
             Log.Logger = config.CreateLogger();
 
@@ -68,31 +52,33 @@ namespace MyJetWallet.Sdk.Service
             return new LoggerFactory().AddSerilog();
         }
 
-        private static void SetupElk(ElkLogSettings elkSettings, LoggerConfiguration config)
+        private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
         {
-            if (elkSettings?.Urls?.Any() == true)
+            var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
+
+            if (logElkSettings?.Urls?.Any() == true)
             {
                 config.WriteTo.Elasticsearch(
-                    new ElasticsearchSinkOptions(elkSettings.Urls.Values.Select(u => new Uri(u)))
+                    new ElasticsearchSinkOptions(logElkSettings.Urls.Values.Select(u => new Uri(u)))
                     {
                         AutoRegisterTemplate = true,
                         EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
                         AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
-                        IndexDecider = (e, o) => $"{elkSettings.IndexPrefix}-{o.Date:yyyy-MM-dd}",
+                        IndexDecider = (e, o) => $"{prefix}-{o.Date:yyyy-MM-dd}",
                         ModifyConnectionSettings = configuration =>
                         {
                             configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
 
-                            if (!string.IsNullOrEmpty(elkSettings.User))
+                            if (!string.IsNullOrEmpty(logElkSettings.User))
                             {
-                                configuration.BasicAuthentication(elkSettings.User, elkSettings.Password);
+                                configuration.BasicAuthentication(logElkSettings.User, logElkSettings.Password);
                             }
 
                             return configuration;
                         }
                     });
 
-                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {elkSettings.IndexPrefix}-yyyy-MM-dd");
+                Console.WriteLine($"Setup logging to Elasticsearch. Index name: {prefix}-yyyy-MM-dd");
             }
         }
 
