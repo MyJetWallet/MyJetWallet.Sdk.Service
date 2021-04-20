@@ -228,9 +228,9 @@ namespace MyJetWallet.Sdk.Service
 
             if (activity != null)
             {
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("SpanId", new ScalarValue(activity.GetSpanId())));
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("TraceId", new ScalarValue(activity.GetTraceId())));
-                logEvent.AddPropertyIfAbsent(new LogEventProperty("ParentId", new ScalarValue(activity.GetParentId())));
+                logEvent.AddPropertyIfAbsent(new LogEventProperty("Span_Id", new ScalarValue(activity.GetSpanId())));
+                logEvent.AddPropertyIfAbsent(new LogEventProperty("Trace_Id", new ScalarValue(activity.GetTraceId())));
+                logEvent.AddPropertyIfAbsent(new LogEventProperty("Parent_Id", new ScalarValue(activity.GetParentId())));
             }
         }
     }
