@@ -271,7 +271,7 @@ namespace MyJetWallet.Sdk.Service
 
         public static string GetActivityId(this Activity activity)
         {
-            return activity.Id;
+            return activity.DisplayName;
         }
 
         public static TimeSpan GetActivityDuration(this Activity activity)
