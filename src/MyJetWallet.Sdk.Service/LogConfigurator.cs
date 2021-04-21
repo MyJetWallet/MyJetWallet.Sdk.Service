@@ -18,7 +18,8 @@ namespace MyJetWallet.Sdk.Service
         public static ILoggerFactory ConfigureElk(
             string productName = default,
             string seqServiceUrl = default,
-            LogElkSettings logElkSettings = null)
+            LogElkSettings logElkSettings = null,
+            bool testSink = true)
         {
             Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
             Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
@@ -41,6 +42,11 @@ namespace MyJetWallet.Sdk.Service
 
             SetupElk(logElkSettings, config);
 
+            if (testSink)
+            {
+                config.WriteTo.Sink(new MyTestSink());
+            }
+
             Log.Logger = config.CreateLogger();
 
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
@@ -53,7 +59,7 @@ namespace MyJetWallet.Sdk.Service
                 Log.CloseAndFlush();
             };
 
-            return new LoggerFactory().AddSerilog();
+            return new LoggerFactory().AddSerilog().ToSafeLogger();
         }
 
         private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
@@ -129,7 +135,7 @@ namespace MyJetWallet.Sdk.Service
                 Log.CloseAndFlush();
             };
 
-            return new LoggerFactory().AddSerilog();
+            return new LoggerFactory().AddSerilog().ToSafeLogger();
         }
 
         private static IConfigurationRoot BuildConfigRoot()
@@ -217,6 +223,19 @@ namespace MyJetWallet.Sdk.Service
             public ElasticsearchUrlsConfig ElasticsearchLogs { get; set; }
         }
 
+    }
+
+    public class MyTestSink : ILogEventSink
+    {
+        public static bool IsExeption { get; set; } = false;
+
+        public void Emit(LogEvent logEvent)
+        {
+            if (IsExeption)
+            {
+                throw new Exception($"My sink exception: {logEvent.MessageTemplate.Text}");
+            }
+        }
     }
 
 
