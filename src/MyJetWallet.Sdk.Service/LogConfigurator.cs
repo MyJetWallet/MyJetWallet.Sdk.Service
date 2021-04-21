@@ -41,7 +41,7 @@ namespace MyJetWallet.Sdk.Service
 
             SetupElk(logElkSettings, config);
 
-            Log.Logger = config.CreateLogger();
+            Log.Logger = new SerilogSafeWrapper(config.CreateLogger());
 
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
             {
@@ -58,10 +58,10 @@ namespace MyJetWallet.Sdk.Service
 
         private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
         {
-            var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
-
             if (logElkSettings?.Urls?.Any() == true)
             {
+                var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
+
                 var number = 0;
 
                 if (logElkSettings?.Urls.Count > 1)

@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\release-api-client.yml = .github\workflows\release-api-client.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "src\TestApp\TestApp.csproj", "{896681E8-3BFE-43FA-94A7-7A2BF18F4145}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{63388B9D-FC53-4A06-9485-61A537D74025}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63388B9D-FC53-4A06-9485-61A537D74025}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63388B9D-FC53-4A06-9485-61A537D74025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896681E8-3BFE-43FA-94A7-7A2BF18F4145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896681E8-3BFE-43FA-94A7-7A2BF18F4145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896681E8-3BFE-43FA-94A7-7A2BF18F4145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896681E8-3BFE-43FA-94A7-7A2BF18F4145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

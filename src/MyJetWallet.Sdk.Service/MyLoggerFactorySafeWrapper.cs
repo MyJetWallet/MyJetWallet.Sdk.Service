@@ -1,5 +1,7 @@
 ﻿using System;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
+using Serilog.Events;
 
 namespace MyJetWallet.Sdk.Service
 {
@@ -94,6 +96,42 @@ namespace MyJetWallet.Sdk.Service
             catch (Exception e)
             {
                 Console.WriteLine($"!!!!!!!!!!!!!!!!!\n[ERROR] Cannot execute formatter() in ILogger.Log\n{e}");
+            }
+        }
+    }
+
+    public class SerilogSafeWrapper : Serilog.ILogger
+    {
+        private readonly Serilog.ILogger _logger;
+
+        public SerilogSafeWrapper(Serilog.ILogger logger)
+        {
+            _logger = logger;
+        }
+
+        public void Write(LogEvent logEvent)
+        {
+            try
+            {
+                _logger.Write(logEvent);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"!!!!!!! [ERROR]Cannot write to Serilog.ILogger. Exception: {ex}");
+                LogToConsole(logEvent);
+
+            }
+        }
+
+        private void LogToConsole(LogEvent logEvent)
+        {
+            try
+            {
+                Console.WriteLine($"[{logEvent.Level}] {logEvent.MessageTemplate.Text} {logEvent.Exception}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"!!!!!!! [ERROR]Cannot print LogEvent!!!. {ex}");
             }
         }
     }
