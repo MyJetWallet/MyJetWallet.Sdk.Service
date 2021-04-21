@@ -21,7 +21,7 @@ namespace MyJetWallet.Sdk.Service.Tools
         {
             _owner = owner;
             _interval = interval;
-            _logger = logger;
+            _logger = logger.ToSaveLogger();
             _doProcess = doProcess;
         }
         
