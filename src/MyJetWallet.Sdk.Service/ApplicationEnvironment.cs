@@ -33,6 +33,8 @@ namespace MyJetWallet.Sdk.Service
 
             AppName = appName;
             AppVersion = name?.Version?.ToString();
+
+            EnvInfo = Config["ENV_INFO"];
         }
 
         /// <summary>
@@ -52,6 +54,8 @@ namespace MyJetWallet.Sdk.Service
         public static string AppName { get; }
 
         public static string AppVersion { get; }
+
+        public static string EnvInfo { get; }
 
         public static bool IsDevelopment => Environment == "Development";
 
