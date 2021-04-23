@@ -37,7 +37,7 @@ namespace MyJetWallet.Sdk.Service
 
             SetupConsole(configRoot, config);
 
-            SetupSeq(configRoot, config, seqServiceUrl);
+            SetupSeq(config, seqServiceUrl);
 
             SetupElk(logElkSettings, config);
 
@@ -115,7 +115,7 @@ namespace MyJetWallet.Sdk.Service
 
             SetupConsole(configRoot, config);
 
-            SetupSeq(configRoot, config, seqServiceUrl);
+            SetupSeq(config, seqServiceUrl);
 
             Log.Logger = config.CreateLogger();
 
@@ -194,7 +194,7 @@ namespace MyJetWallet.Sdk.Service
             }
         }
 
-        private static void SetupSeq(IConfigurationRoot configRoot, LoggerConfiguration config, string seqServiceUrl)
+        private static void SetupSeq(LoggerConfiguration config, string seqServiceUrl)
         {
             if (!string.IsNullOrEmpty(seqServiceUrl))
             {
