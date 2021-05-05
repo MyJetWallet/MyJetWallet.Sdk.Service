@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.Service;
@@ -12,17 +13,28 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
-            var loggerFactory = LogConfigurator.ConfigureElk();
+            var elkSettings = new LogElkSettings()
+            {
+                IndexPrefix = "test-01",
+                User = "spot",
+                Password = "63glAuxUz7h6TUbIR79TOVVcp9vX0id2",
+                Urls = new Dictionary<string, string>()
+                {
+                    {"node1", "https://192.168.11.4:9200"},
+                    {"node2", "https://192.168.11.5:9200"},
+                    {"node3", "https://192.168.11.6:9200"}
+                }
+            };
+
+            var loggerFactory = LogConfigurator.ConfigureElk(logElkSettings: elkSettings);
 
             var logger = loggerFactory.CreateLogger("test");
-
-            
 
             while (true)
             {
                 Log.Logger.Information("Hey serilog");
                 logger.LogInformation("Hello world");
-                await Task.Delay(200);
+                await Task.Delay(1000);
             }
         }
     }

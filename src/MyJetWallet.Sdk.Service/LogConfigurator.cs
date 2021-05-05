@@ -62,18 +62,10 @@ namespace MyJetWallet.Sdk.Service
             {
                 var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
 
-                var number = 0;
-
-                if (logElkSettings?.Urls.Count > 1)
-                {
-                    var rnd = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
-                    number = rnd.Next(logElkSettings.Urls.Count);
-                }
-
-                var url = logElkSettings.Urls.Values.ToArray()[number];
+                var urls = logElkSettings.Urls.Values.Select(e => new Uri(e)).ToArray();
 
                 config.WriteTo.Elasticsearch(
-                    new ElasticsearchSinkOptions(new Uri(url))
+                    new ElasticsearchSinkOptions(urls)
                     {
                         AutoRegisterTemplate = true,
                         EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
@@ -92,7 +84,7 @@ namespace MyJetWallet.Sdk.Service
                         }
                     });
 
-                Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Number: {number} ({url}). Index name: {prefix}-yyyy-MM-dd");
+                Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Length}. Index name: {prefix}-yyyy-MM-dd");
             }
         }
 
