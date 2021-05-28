@@ -31,7 +31,8 @@ namespace MyJetWallet.Sdk.Service
             string zipkinEndpoint = null,
             Func<HttpRequest, bool> httpRequestFilter = null,
             IEnumerable<string> sources = null,
-            bool errorStatusOnException = false)
+            bool errorStatusOnException = false,
+            string jaegerHostPort = null)
         {
             services.AddOpenTelemetryTracing((builder) =>
                 {
@@ -81,15 +82,52 @@ namespace MyJetWallet.Sdk.Service
                             options.ExportProcessorType = ExportProcessorType.Batch;
                         });
 
+                        builder.AddJaegerExporter(options =>
+                        {
+                            options.AgentHost = "localhost";
+                            options.AgentPort = 14268;
+                            options.ExportProcessorType = ExportProcessorType.Batch;
+                        });
+
                         Console.WriteLine("Telemetry to Zipkin - ACTIVE");
                     }
                     else
                     {
                         Console.WriteLine("Telemetry to Zipkin - DISABLED");
                     }
+
+                    AddJaeger(jaegerHostPort, builder);
+
+                    
                 });
 
             return services;
+        }
+
+        private static void AddJaeger(string jaegerHostPort, TracerProviderBuilder builder)
+        {
+            if (!string.IsNullOrEmpty(jaegerHostPort))
+            {
+                var prm = jaegerHostPort.Split(":");
+                if (prm.Length != 2 || string.IsNullOrEmpty(prm[0]) || !int.TryParse(prm[1], out var port))
+                {
+                    Console.WriteLine("ERROR. Cannot parse host port.  Telemetry to Jaeger - DISABLED");
+                    return;
+                }
+
+                builder.AddJaegerExporter(options =>
+                {
+                    options.AgentHost = prm[0];
+                    options.AgentPort = port;
+                    options.ExportProcessorType = ExportProcessorType.Batch;
+                });
+
+                Console.WriteLine("Telemetry to Jaeger - ACTIVE");
+            }
+            else
+            {
+                Console.WriteLine("Telemetry to Jaeger - DISABLED");
+            }
         }
 
         [CanBeNull]
