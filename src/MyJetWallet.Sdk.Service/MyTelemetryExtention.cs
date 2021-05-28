@@ -31,7 +31,8 @@ namespace MyJetWallet.Sdk.Service
             string zipkinEndpoint = null,
             Func<HttpRequest, bool> httpRequestFilter = null,
             IEnumerable<string> sources = null,
-            bool errorStatusOnException = false)
+            bool errorStatusOnException = false,
+            string appNamePrefix="")
         {
             services.AddOpenTelemetryTracing((builder) =>
                 {
@@ -57,7 +58,7 @@ namespace MyJetWallet.Sdk.Service
                         .AddGrpcClientInstrumentation()
                         .AddProcessor(new MyExceptionProcessor())
                         .AddProcessor(new MySpanTraceProcessor())
-                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService(ApplicationEnvironment.AppName));
+                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}"));
 
                     if (errorStatusOnException)
                     {
