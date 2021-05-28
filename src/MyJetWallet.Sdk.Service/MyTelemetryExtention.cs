@@ -28,11 +28,11 @@ namespace MyJetWallet.Sdk.Service
         }
 
         public static IServiceCollection AddMyTelemetry(this IServiceCollection services,
+            string appNamePrefix,
             string zipkinEndpoint = null,
             Func<HttpRequest, bool> httpRequestFilter = null,
             IEnumerable<string> sources = null,
-            bool errorStatusOnException = false,
-            string appNamePrefix="")
+            bool errorStatusOnException = false)
         {
             services.AddOpenTelemetryTracing((builder) =>
                 {
