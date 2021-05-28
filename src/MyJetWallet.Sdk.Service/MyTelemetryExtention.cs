@@ -60,7 +60,7 @@ namespace MyJetWallet.Sdk.Service
                         .AddGrpcClientInstrumentation()
                         .AddProcessor(new MyExceptionProcessor())
                         .AddProcessor(new MySpanTraceProcessor())
-                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}"));
+                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}", "SPOT"));
 
                     if (errorStatusOnException)
                     {
