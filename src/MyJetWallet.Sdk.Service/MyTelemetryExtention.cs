@@ -13,7 +13,7 @@ namespace MyJetWallet.Sdk.Service
 {
     public static class MyTelemetry
     {
-        public static ActivitySource Source;
+        public static readonly ActivitySource Source;
 
         static MyTelemetry()
         {
@@ -34,8 +34,6 @@ namespace MyJetWallet.Sdk.Service
             IEnumerable<string> sources = null,
             bool errorStatusOnException = false)
         {
-            Source = new ActivitySource($"{appNamePrefix}{ApplicationEnvironment.AppName}");
-
             services.AddOpenTelemetryTracing((builder) =>
                 {
                     builder
@@ -55,12 +53,12 @@ namespace MyJetWallet.Sdk.Service
                             options.EnableGrpcAspNetCoreSupport = true;
                         })
                         .SetSampler(new AlwaysOnSampler())
-                        .AddSource($"{appNamePrefix}{ApplicationEnvironment.AppName}")
+                        .AddSource(ApplicationEnvironment.AppName)
                         .AddSource("MyJetWallet")
                         .AddGrpcClientInstrumentation()
                         .AddProcessor(new MyExceptionProcessor())
                         .AddProcessor(new MySpanTraceProcessor())
-                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}", "SPOT"));
+                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}"));
 
                     if (errorStatusOnException)
                     {
