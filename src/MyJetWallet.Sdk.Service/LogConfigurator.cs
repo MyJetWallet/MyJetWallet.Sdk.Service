@@ -26,12 +26,14 @@ namespace MyJetWallet.Sdk.Service
             IConfigurationRoot configRoot = BuildConfigRoot();
 
             var config = new LoggerConfiguration()
-                
+
                 .ReadFrom.Configuration(configRoot)
                 .Enrich.FromLogContext()
                 .Enrich.With<ActivityEnricher>()
                 .Enrich.WithExceptionData()
                 .Enrich.WithCorrelationIdHeader();
+
+            OverrideLogLevel(config);
 
             SetupProperty(productName, config);
 
@@ -55,6 +57,18 @@ namespace MyJetWallet.Sdk.Service
             };
 
             return new LoggerFactory().AddSerilog().ToSafeLogger();
+        }
+
+        private static void OverrideLogLevel(LoggerConfiguration config)
+        {
+            config
+                .MinimumLevel.Debug()
+                .MinimumLevel.Override("Microsoft.AspNetCore.Server.Kestrel", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Hosting.Diagnostics", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Authentication", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.Hosting.Lifetime", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft.AspNetCore.Routing", LogEventLevel.Warning)
+                .MinimumLevel.Override("Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware", LogEventLevel.Warning);
         }
 
         private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
@@ -130,7 +144,7 @@ namespace MyJetWallet.Sdk.Service
             var configBuilder = new ConfigurationBuilder();
 
             configBuilder
-                .AddJsonFile("appsettings.json", optional: false)
+                .AddJsonFile("appsettings.json", optional: true)
                 .AddJsonFile($"appsettings.{ApplicationEnvironment.Environment}.json", optional: true)
                 .AddEnvironmentVariables();
 
@@ -225,6 +239,11 @@ namespace MyJetWallet.Sdk.Service
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Parent_Id", new ScalarValue(activity.GetParentId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Id", new ScalarValue(activity.GetActivityId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Duration", new ScalarValue(activity.GetActivityDuration())));
+                
+                foreach (var pair in activity.Baggage)
+                {
+                    logEvent.AddPropertyIfAbsent(new LogEventProperty($"bag-{pair.Key}", new ScalarValue(pair.Value)));
+                }
             }
         }
     }
