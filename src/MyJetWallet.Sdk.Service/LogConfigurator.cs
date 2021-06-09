@@ -41,7 +41,8 @@ namespace MyJetWallet.Sdk.Service
 
             SetupElk(logElkSettings, config);
 
-            Log.Logger = new SerilogSafeWrapper(config.CreateLogger());
+            //Log.Logger = new SerilogSafeWrapper(config.CreateLogger());
+            Log.Logger =config.CreateLogger();
 
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
             {
@@ -129,7 +130,7 @@ namespace MyJetWallet.Sdk.Service
             var configBuilder = new ConfigurationBuilder();
 
             configBuilder
-                .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile("appsettings.json", optional: false)
                 .AddJsonFile($"appsettings.{ApplicationEnvironment.Environment}.json", optional: true)
                 .AddEnvironmentVariables();
 
@@ -141,7 +142,6 @@ namespace MyJetWallet.Sdk.Service
         {
             Activity.DefaultIdFormat = ActivityIdFormat.W3C;
             config
-                .Enrich.FromLogContext()
                 .Enrich.WithProperty("app-name", ApplicationEnvironment.AppName)
                 .Enrich.WithProperty("app-version", ApplicationEnvironment.AppVersion)
                 .Enrich.WithProperty("host-name", ApplicationEnvironment.HostName ?? ApplicationEnvironment.UserName)
