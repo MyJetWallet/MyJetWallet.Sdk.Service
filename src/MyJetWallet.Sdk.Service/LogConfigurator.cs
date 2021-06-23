@@ -73,7 +73,7 @@ namespace MyJetWallet.Sdk.Service
 
         private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
         {
-            if (logElkSettings?.Urls?.Any() == true && logElkSettings.Urls.All(e => !string.IsNullOrEmpty(e.Value)))
+            if (logElkSettings?.Urls?.Any() == true && logElkSettings.Urls.All(e => !string.IsNullOrEmpty(e.Value) && e.Value != "null"))
             {
                 var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
 
