@@ -73,7 +73,7 @@ namespace MyJetWallet.Sdk.Service
 
         private static void SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)
         {
-            if (logElkSettings?.Urls?.Any() == true)
+            if (logElkSettings?.Urls?.Any() == true && logElkSettings.Urls.All(e => !string.IsNullOrEmpty(e.Value)))
             {
                 var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
 
@@ -100,6 +100,10 @@ namespace MyJetWallet.Sdk.Service
                     });
 
                 Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Length}. Index name: {prefix}-yyyy-MM-dd");
+            }
+            else
+            {
+                Console.WriteLine($"ElasticSearch is DISABLES");
             }
         }
 
