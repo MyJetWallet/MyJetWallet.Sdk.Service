@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Destructurama;
 using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -31,7 +32,8 @@ namespace MyJetWallet.Sdk.Service
                 .Enrich.FromLogContext()
                 .Enrich.With<ActivityEnricher>()
                 .Enrich.WithExceptionData()
-                .Enrich.WithCorrelationIdHeader();
+                .Enrich.WithCorrelationIdHeader()
+                .Destructure.UsingAttributes();
 
             OverrideLogLevel(config);
 
