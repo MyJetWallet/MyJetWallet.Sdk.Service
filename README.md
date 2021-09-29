@@ -51,3 +51,22 @@ catch(Exception ex)
 	throw;
 }
 ```
+
+log messages using Destructorama:
+```
+
+public class Message
+{
+	[LogMasked(PreserveLength = false)]
+	public string Password {get;set;}
+}
+
+ILogger _logger;
+var message = new Message()
+{
+	Password = "QWERTY_123456"
+};
+_logger.LogInformation("Log message {@context}", message);
+
+
+```
