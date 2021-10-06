@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
+using MyJetWallet.Sdk.Grpc;
 
 namespace MyJetWallet.Sdk.Service
 {
@@ -35,6 +36,10 @@ namespace MyJetWallet.Sdk.Service
             AppVersion = name?.Version?.ToString();
 
             EnvInfo = Config["ENV_INFO"];
+
+            CallSourceInterceptor.AppHost = HostName;
+            CallSourceInterceptor.AppName = AppName;
+            CallSourceInterceptor.AppVersion = AppVersion;
         }
 
         /// <summary>
