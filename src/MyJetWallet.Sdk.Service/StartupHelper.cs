@@ -10,7 +10,7 @@ namespace MyJetWallet.Sdk.Service
     public static class StartupHelper
     {
         public static IServiceCollection BindCodeFirstGrpc(
-            IServiceCollection services,
+            this IServiceCollection services,
             Action<GrpcServiceOptions>? configureOptions = null)
         {
             services.AddCodeFirstGrpc(options =>
