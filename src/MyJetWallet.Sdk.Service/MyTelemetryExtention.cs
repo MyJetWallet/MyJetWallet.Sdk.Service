@@ -32,7 +32,8 @@ namespace MyJetWallet.Sdk.Service
             string zipkinEndpoint = null,
             Func<HttpRequest, bool> httpRequestFilter = null,
             IEnumerable<string> sources = null,
-            bool errorStatusOnException = false)
+            bool errorStatusOnException = false,
+            bool setDbStatementForText = true)
         {
             services.AddOpenTelemetryTracing((builder) =>
                 {
@@ -51,6 +52,10 @@ namespace MyJetWallet.Sdk.Service
                                 return true;
                             };
                             options.EnableGrpcAspNetCoreSupport = true;
+                        })
+                        .AddEntityFrameworkCoreInstrumentation(option =>
+                        {
+                            option.SetDbStatementForText = setDbStatementForText;
                         })
                         .SetSampler(new AlwaysOnSampler())
                         .AddSource(ApplicationEnvironment.AppName)
