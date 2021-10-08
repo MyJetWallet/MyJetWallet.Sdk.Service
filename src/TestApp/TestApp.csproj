@@ -18,4 +18,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry" Version="1.1.0" />
+  </ItemGroup>
+
 </Project>
