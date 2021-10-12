@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.Service;
@@ -13,6 +15,24 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
+            var httpClient = new HttpClient();
+            httpClient.Timeout = TimeSpan.FromSeconds(5);
+
+            try
+            {
+               var resp = httpClient.GetAsync("https://192.168.11.4:9200").GetAwaiter().GetResult();
+                
+                Console.WriteLine(resp.StatusCode);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            
+            return;
+            
+            
+            
             var elkSettings = new LogElkSettings()
             {
                 IndexPrefix = "test-01",

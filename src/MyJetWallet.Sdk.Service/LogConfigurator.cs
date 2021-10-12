@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Threading;
 using Destructurama;
 using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
@@ -78,9 +80,34 @@ namespace MyJetWallet.Sdk.Service
             if (logElkSettings?.Urls?.Any() == true && logElkSettings.Urls.All(e => !string.IsNullOrEmpty(e.Value) && e.Value != "null"))
             {
                 var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
+                
+                var urls = new List<Uri>();
+                var httpClient = new HttpClient();
+                httpClient.Timeout = TimeSpan.FromSeconds(5);
+                
+                foreach (var url in logElkSettings.Urls.Values)
+                {
+                    try
+                    {
+                        var resp = httpClient.GetAsync(url).GetAwaiter().GetResult();
+                        
+                        urls.Add(new Uri(url));
+                    }
+                    catch (Exception ex)
+                    {
+                        var color = Console.ForegroundColor;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"ELK WRONG URL: {url}. {ex.Message}");
+                        Console.ForegroundColor = color;
+                    }
+                }
 
-                var urls = logElkSettings.Urls.Values.Select(e => new Uri(e)).ToArray();
-
+                if (!urls.Any())
+                {
+                    Console.WriteLine($"ElasticSearch is DISABLES");
+                    return;
+                }
+                
                 config.WriteTo.Elasticsearch(
                     new ElasticsearchSinkOptions(urls)
                     {
@@ -101,7 +128,7 @@ namespace MyJetWallet.Sdk.Service
                         }
                     });
 
-                Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Length}. Index name: {prefix}-yyyy-MM-dd");
+                Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Count}. Index name: {prefix}-yyyy-MM-dd");
             }
             else
             {
