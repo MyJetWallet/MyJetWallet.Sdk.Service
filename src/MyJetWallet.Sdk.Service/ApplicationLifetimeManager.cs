@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Hosting;
+using MyJetWallet.Sdk.Service.LivnesProbs;
 
 namespace MyJetWallet.Sdk.Service
 {
@@ -9,10 +10,12 @@ namespace MyJetWallet.Sdk.Service
     public class ApplicationLifetimeManagerBase : IHostedService
     {
         private readonly IHostApplicationLifetime _appLifetime;
+        private readonly LivenessManager _livenessManager;
 
-        public ApplicationLifetimeManagerBase(IHostApplicationLifetime appLifetime)
+        public ApplicationLifetimeManagerBase(IHostApplicationLifetime appLifetime, LivenessManager livenessManager)
         {
             _appLifetime = appLifetime;
+            _livenessManager = livenessManager;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -20,6 +23,8 @@ namespace MyJetWallet.Sdk.Service
             _appLifetime.ApplicationStarted.Register(OnStarted);
             _appLifetime.ApplicationStopping.Register(OnStopping);
             _appLifetime.ApplicationStopped.Register(OnStopped);
+            
+            _livenessManager.Start();
 
             return Task.CompletedTask;
         }

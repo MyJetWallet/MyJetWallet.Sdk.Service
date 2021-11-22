@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    
+    <PackageReference Include="MyJetWallet.Sdk.GrpcSchema" Version="1.0.6" />
   </ItemGroup>
 
 </Project>
