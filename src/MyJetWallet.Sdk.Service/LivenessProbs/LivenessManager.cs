@@ -13,8 +13,8 @@ namespace MyJetWallet.Sdk.Service.LivnesProbs
         private readonly ILivenessReporter[] _reporters;
         private readonly ILogger<LivenessManager> _logger;
         private MyTaskTimer _timer;
-        public Dictionary<string, List<string>> Issues { get; private set; }
-        
+        public Dictionary<string, List<string>> Issues { get; private set; } = new();
+
         public static LivenessManager Instance { get; private set; }
         
 

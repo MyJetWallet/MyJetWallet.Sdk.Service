@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using MyJetWallet.Sdk.Grpc;
 using MyJetWallet.Sdk.GrpcMetrics;
 using MyJetWallet.Sdk.GrpcSchema;
+using MyJetWallet.Sdk.Service.LivenessProbs;
 using MyJetWallet.Sdk.Service.LivnesProbs;
 using Prometheus;
 using ProtoBuf.Grpc.Server;
@@ -62,31 +63,13 @@ namespace MyJetWallet.Sdk.Service
 
             app.BindIsAlive();
 
+            app.UseMiddleware<LivnessMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcSchemaRegistry();
                 
                 configureGrpcServices?.Invoke(endpoints);
-
-                endpoints.MapGet("/api/livness", async context =>
-                {
-                    var issues = LivenessManager.Instance?.Issues;
-
-                    if (issues == null)
-                    {
-                        context.Response.StatusCode = 500;
-                        await context.Response.WriteAsync("{ \"status\": \"LivenessManager does not exist\"}");
-                    }
-                    
-                    if (issues.Any())
-                    {
-                        context.Response.StatusCode = 500;
-                        await context.Response.WriteAsync(issues.ToJson());
-                    }
-                    
-                    context.Response.StatusCode = 200;
-                    await context.Response.WriteAsync("{ \"status\": \"ok\"}");
-                });
                 
                 endpoints.MapGet("/", async context =>
                 {

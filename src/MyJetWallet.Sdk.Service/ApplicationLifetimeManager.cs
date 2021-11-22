@@ -10,7 +10,6 @@ namespace MyJetWallet.Sdk.Service
     public class ApplicationLifetimeManagerBase : IHostedService
     {
         private readonly IHostApplicationLifetime _appLifetime;
-        private readonly LivenessManager _livenessManager;
 
         public ApplicationLifetimeManagerBase(IHostApplicationLifetime appLifetime)
         {
