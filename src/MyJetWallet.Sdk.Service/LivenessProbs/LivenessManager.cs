@@ -20,22 +20,20 @@ namespace MyJetWallet.Sdk.Service.LivnesProbs
 
         public LivenessManager(ILivenessReporter[] reporters, ILogger<LivenessManager> logger)
         {
-            Issues = new Dictionary<string, List<string>>()
+            Issues = new Dictionary<string, List<string>>
             {
+                ["LivenessManager"] = new()
                 {
-                    "LivenessManager", new List<string>()
-                    {
-                        "LivenessManager does not started"
-                    }
+                    "LivenessManager does not started"
                 }
             };
-            
-            _reporters = reporters;
+
+            _reporters = reporters ?? new ILivenessReporter[]{};
             _logger = logger;
             _timer = new MyTaskTimer(nameof(LivenessManager), TimeSpan.FromSeconds(30), logger, DoTime);
             Instance = this;
             
-            Console.WriteLine("Count reports: {count}", reporters?.Length);
+            Console.WriteLine("Count reports: {count}", _reporters.Length);
         }
 
         private Task DoTime()
