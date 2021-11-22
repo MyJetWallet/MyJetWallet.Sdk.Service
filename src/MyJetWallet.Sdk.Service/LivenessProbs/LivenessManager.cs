@@ -33,7 +33,7 @@ namespace MyJetWallet.Sdk.Service.LivnesProbs
             _timer = new MyTaskTimer(nameof(LivenessManager), TimeSpan.FromSeconds(30), logger, DoTime);
             Instance = this;
             
-            Console.WriteLine("Count reports: {count}", _reporters.Length);
+            Console.WriteLine($"Count reports: {_reporters.Length}");
         }
 
         private Task DoTime()
