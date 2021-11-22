@@ -13,13 +13,23 @@ namespace MyJetWallet.Sdk.Service.LivnesProbs
         private readonly ILivenessReporter[] _reporters;
         private readonly ILogger<LivenessManager> _logger;
         private MyTaskTimer _timer;
-        public Dictionary<string, List<string>> Issues { get; private set; } = new Dictionary<string, List<string>>();
+        public Dictionary<string, List<string>> Issues { get; private set; }
         
         public static LivenessManager Instance { get; private set; }
         
 
         public LivenessManager(ILivenessReporter[] reporters, ILogger<LivenessManager> logger)
         {
+            Issues = new Dictionary<string, List<string>>()
+            {
+                {
+                    "LivenessManager", new List<string>()
+                    {
+                        "LivenessManager does not started"
+                    }
+                }
+            };
+            
             _reporters = reporters;
             _logger = logger;
             _timer = new MyTaskTimer(nameof(LivenessManager), TimeSpan.FromSeconds(30), logger, DoTime);
@@ -54,6 +64,7 @@ namespace MyJetWallet.Sdk.Service.LivnesProbs
 
         public void Start()
         {
+            Console.WriteLine("-- Start LivenessManager --");
             _timer.Start();
         }
     }

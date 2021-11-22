@@ -12,10 +12,9 @@ namespace MyJetWallet.Sdk.Service
         private readonly IHostApplicationLifetime _appLifetime;
         private readonly LivenessManager _livenessManager;
 
-        public ApplicationLifetimeManagerBase(IHostApplicationLifetime appLifetime, LivenessManager livenessManager)
+        public ApplicationLifetimeManagerBase(IHostApplicationLifetime appLifetime)
         {
             _appLifetime = appLifetime;
-            _livenessManager = livenessManager;
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
@@ -24,7 +23,7 @@ namespace MyJetWallet.Sdk.Service
             _appLifetime.ApplicationStopping.Register(OnStopping);
             _appLifetime.ApplicationStopped.Register(OnStopped);
             
-            _livenessManager.Start();
+            LivenessManager.Instance?.Start();
 
             return Task.CompletedTask;
         }

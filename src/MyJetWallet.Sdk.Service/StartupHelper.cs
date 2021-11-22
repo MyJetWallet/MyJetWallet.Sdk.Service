@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using Autofac;
 using Grpc.AspNetCore.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,7 +44,6 @@ namespace MyJetWallet.Sdk.Service
             services.BindCodeFirstGrpc();
             services.AddHostedService<TLifetimeManager>();
             services.AddMyTelemetry(appNamePrefix, zipkinUrl);
-            services.AddSingleton<LivenessManager>();
         }
         
         public static void ConfigureJetWallet(this IApplicationBuilder app, IWebHostEnvironment env,
@@ -70,8 +70,14 @@ namespace MyJetWallet.Sdk.Service
 
                 endpoints.MapGet("/api/livness", async context =>
                 {
-                    var issues = LivenessManager.Instance.Issues;
+                    var issues = LivenessManager.Instance?.Issues;
 
+                    if (issues == null)
+                    {
+                        context.Response.StatusCode = 500;
+                        await context.Response.WriteAsync("{ \"status\": \"LivenessManager does not exist\"}");
+                    }
+                    
                     if (issues.Any())
                     {
                         context.Response.StatusCode = 500;
@@ -87,6 +93,11 @@ namespace MyJetWallet.Sdk.Service
                     await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
                 });
             });
+        }
+
+        public static void ConfigureJetWallet(this ContainerBuilder builder)
+        {
+            builder.RegisterType<LivenessManager>().AsSelf().SingleInstance();
         }
     }
 }
