@@ -97,7 +97,7 @@ namespace MyJetWallet.Sdk.Service
 
         public static void ConfigureJetWallet(this ContainerBuilder builder)
         {
-            builder.RegisterType<LivenessManager>().AsSelf().SingleInstance();
+            builder.RegisterType<LivenessManager>().AsSelf().AutoActivate().SingleInstance();
         }
     }
 }
