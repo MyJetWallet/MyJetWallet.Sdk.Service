@@ -31,7 +31,10 @@ namespace MyJetWallet.Sdk.Service
                 options.Interceptors.Add<PrometheusMetricsInterceptor>();
                 options.Interceptors.Add<CallSourceInterceptor>();
                 options.Interceptors.Add<ExceptionInterceptor>();
-                
+
+                options.EnableDetailedErrors = true;
+                options.MaxReceiveMessageSize = 1024 * 1024 * 10;
+
                 configureOptions?.Invoke(options);
             });
 
