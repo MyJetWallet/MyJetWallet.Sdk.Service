@@ -107,26 +107,29 @@ namespace MyJetWallet.Sdk.Service
                     Console.WriteLine($"ElasticSearch is DISABLES");
                     return;
                 }
-                
-                config.WriteTo.Elasticsearch(
-                    new ElasticsearchSinkOptions(urls)
+
+                var option = new ElasticsearchSinkOptions(urls)
+                {
+                    AutoRegisterTemplate = true,
+                    EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
+                    AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+                    TypeName = null,
+                    IndexDecider = (e, o) => $"{prefix}-{o.Date:yyyy-MM-dd}",
+                    BatchAction = ElasticOpType.Create,
+                    ModifyConnectionSettings = configuration =>
                     {
-                        AutoRegisterTemplate = true,
-                        EmitEventFailure = EmitEventFailureHandling.WriteToSelfLog,
-                        AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
-                        IndexDecider = (e, o) => $"{prefix}-{o.Date:yyyy-MM-dd}",
-                        ModifyConnectionSettings = configuration =>
+                        configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
+
+                        if (!string.IsNullOrEmpty(logElkSettings.User))
                         {
-                            configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
-
-                            if (!string.IsNullOrEmpty(logElkSettings.User))
-                            {
-                                configuration.BasicAuthentication(logElkSettings.User, logElkSettings.Password);
-                            }
-
-                            return configuration;
+                            configuration.BasicAuthentication(logElkSettings.User, logElkSettings.Password);
                         }
-                    });
+                        
+                        return configuration;
+                    }
+                };
+                
+                config.WriteTo.Elasticsearch(option);
 
                 Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Count}. Index name: {prefix}-yyyy-MM-dd");
             }

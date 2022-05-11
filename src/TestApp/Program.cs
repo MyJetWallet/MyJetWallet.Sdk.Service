@@ -15,34 +15,34 @@ namespace TestApp
     {
         static async Task Main(string[] args)
         {
-            var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(5);
-
-            try
-            {
-               var resp = httpClient.GetAsync("https://192.168.11.4:9200").GetAwaiter().GetResult();
-                
-                Console.WriteLine(resp.StatusCode);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            
-            return;
+            // var httpClient = new HttpClient();
+            // httpClient.Timeout = TimeSpan.FromSeconds(5);
+            //
+            // try
+            // {
+            //    var resp = httpClient.GetAsync("https://192.168.11.4:9200").GetAwaiter().GetResult();
+            //     
+            //     Console.WriteLine(resp.StatusCode);
+            // }
+            // catch (Exception e)
+            // {
+            //     Console.WriteLine(e);
+            // }
+            //
+            // return;
             
             
             
             var elkSettings = new LogElkSettings()
             {
                 IndexPrefix = "test-01",
-                User = "spot",
-                Password = "63glAuxUz7h6TUbIR79TOVVcp9vX0id2",
+                User = "***",
+                Password = "***",
                 Urls = new Dictionary<string, string>()
                 {
-                    {"node1", "https://192.168.11.4:9200"},
-                    {"node2", "https://192.168.11.5:9200"},
-                    {"node3", "https://192.168.11.6:9200"}
+                    {"node1", "https://***:9243"},
+                    {"node2", "https://***:9243"},
+                    {"node3", "https://***:9243"}
                 }
             };
 
