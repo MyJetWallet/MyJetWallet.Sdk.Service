@@ -18,7 +18,7 @@ namespace MyJetWallet.Sdk.Service
 {
     public static class LogConfigurator
     {
-        public static ILoggerFactory ConfigureElk(
+        public static ILoggerFactory ConfigureElk_v2(
             string productName = default,
             string seqServiceUrl = default,
             LogElkSettings logElkSettings = null)
@@ -116,6 +116,7 @@ namespace MyJetWallet.Sdk.Service
                     TypeName = null,
                     IndexDecider = (e, o) => $"{prefix}-{o.Date:yyyy-MM-dd}",
                     BatchAction = ElasticOpType.Create,
+                    
                     ModifyConnectionSettings = configuration =>
                     {
                         configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);

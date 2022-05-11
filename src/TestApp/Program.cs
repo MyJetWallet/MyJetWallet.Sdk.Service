@@ -46,7 +46,7 @@ namespace TestApp
                 }
             };
 
-            var loggerFactory = LogConfigurator.ConfigureElk(logElkSettings: elkSettings);
+            var loggerFactory = LogConfigurator.ConfigureElk_v2(logElkSettings: elkSettings);
 
             var logger = loggerFactory.CreateLogger("test");
 
