@@ -18,6 +18,8 @@ namespace MyJetWallet.Sdk.Service
 {
     public static class LogConfigurator
     {
+        public static ILoggerFactory LoggerFactoryInstance { get; private set; }
+        
         public static ILoggerFactory ConfigureElk_v2(
             string productName = default,
             string seqServiceUrl = default,
@@ -60,7 +62,9 @@ namespace MyJetWallet.Sdk.Service
                 Log.CloseAndFlush();
             };
 
-            return new LoggerFactory().AddSerilog().ToSafeLogger();
+            var factory = new LoggerFactory().AddSerilog().ToSafeLogger();
+            LoggerFactoryInstance = factory;
+            return factory;
         }
 
         private static void OverrideLogLevel(LoggerConfiguration config)
