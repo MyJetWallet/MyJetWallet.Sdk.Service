@@ -35,7 +35,9 @@ namespace MyJetWallet.Sdk.Service
             bool errorStatusOnException = false,
             bool setDbStatementForText = true)
         {
-            services.AddOpenTelemetryTracing((builder) =>
+            services
+                .AddOpenTelemetry()
+                .WithTracing(builder =>
                 {
                     builder
                         .AddAspNetCoreInstrumentation(options =>
