@@ -165,7 +165,7 @@ The *MyJetWallet.Sdk.Service.csproj* project file contains:
 
 - 5 namespaces.
 - 34 named types.
-- 1,460 total lines of source code.
+- 1,462 total lines of source code.
 - Approximately 424 lines of executable code.
 - The highest cyclomatic complexity is 22 :exploding_head:.
 
@@ -437,7 +437,7 @@ The `MyJetWallet.Sdk.Service.LivnesProbs` namespace contains 2 named types.
 The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 - 22 named types.
-- 1,039 total lines of source code.
+- 1,041 total lines of source code.
 - Approximately 314 lines of executable code.
 - The highest cyclomatic complexity is 12 :x:.
 
@@ -920,20 +920,20 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 <br>
 
 - The `MyTelemetry` contains 8 members.
-- 137 total lines of source code.
+- 139 total lines of source code.
 - Approximately 53 lines of executable code.
 - The highest cyclomatic complexity is 12 :x:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L18' title='MyTelemetry.MyTelemetry()'>18</a> | 77 | 1 :heavy_check_mark: | 0 | 4 | 11 / 5 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L30' title='IServiceCollection MyTelemetry.AddMyTelemetry(IServiceCollection services, string appNamePrefix, string zipkinEndpoint = null, Func<HttpRequest, bool> httpRequestFilter = null, IEnumerable<string> sources = null, bool errorStatusOnException = false, bool setDbStatementForText = true)'>30</a> | 46 | 12 :x: | 0 | 11 | 70 / 31 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L134' title='Activity MyTelemetry.AddToActivityAsJsonTag(object obj, string tag)'>134</a> | 82 | 2 :heavy_check_mark: | 0 | 3 | 7 / 3 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L142' title='Activity MyTelemetry.AddToActivityAsTag(object obj, string tag)'>142</a> | 82 | 2 :heavy_check_mark: | 0 | 3 | 7 / 3 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L108' title='Activity MyTelemetry.FailActivity(Exception ex)'>108</a> | 75 | 2 :heavy_check_mark: | 0 | 4 | 12 / 5 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L30' title='IServiceCollection MyTelemetry.AddMyTelemetry(IServiceCollection services, string appNamePrefix, string zipkinEndpoint = null, Func<HttpRequest, bool> httpRequestFilter = null, IEnumerable<string> sources = null, bool errorStatusOnException = false, bool setDbStatementForText = true)'>30</a> | 46 | 12 :x: | 0 | 11 | 72 / 31 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L136' title='Activity MyTelemetry.AddToActivityAsJsonTag(object obj, string tag)'>136</a> | 82 | 2 :heavy_check_mark: | 0 | 3 | 7 / 3 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L144' title='Activity MyTelemetry.AddToActivityAsTag(object obj, string tag)'>144</a> | 82 | 2 :heavy_check_mark: | 0 | 3 | 7 / 3 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L110' title='Activity MyTelemetry.FailActivity(Exception ex)'>110</a> | 75 | 2 :heavy_check_mark: | 0 | 4 | 12 / 5 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L16' title='ActivitySource MyTelemetry.Source'>16</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L102' title='Activity MyTelemetry.StartActivity(string name, ActivityKind kind = null)'>102</a> | 83 | 1 :heavy_check_mark: | 0 | 5 | 5 / 2 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L121' title='Activity MyTelemetry.WriteToActivity(Exception ex)'>121</a> | 77 | 2 :heavy_check_mark: | 0 | 4 | 12 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L104' title='Activity MyTelemetry.StartActivity(string name, ActivityKind kind = null)'>104</a> | 83 | 1 :heavy_check_mark: | 0 | 5 | 5 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyTelemetryExtention.cs#L123' title='Activity MyTelemetry.WriteToActivity(Exception ex)'>123</a> | 77 | 2 :heavy_check_mark: | 0 | 4 | 12 / 4 |
 
 <a href="#MyTelemetry-class-diagram">:link: to `MyTelemetry` class diagram</a>
 
