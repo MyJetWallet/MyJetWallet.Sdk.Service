@@ -67,7 +67,9 @@ namespace MyJetWallet.Sdk.Service
             app.BindIsAlive();
 
             app.UseMiddleware<LivnessMiddleware>();
-
+            
+            app.UseMiddleware<IsAlive2Middleware>();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcSchemaRegistry();
