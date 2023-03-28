@@ -17,12 +17,10 @@ public class IsAlive2Middleware
     private static string _isAliveData = String.Empty;
 
     public IsAlive2Middleware(RequestDelegate next, 
-        ILogger<LivnessMiddleware> logger, 
-        LivenessManager manager)
+        ILogger<LivnessMiddleware> logger)
     {
         _next = next;
         _logger = logger;
-        _manager = manager;
         
     }
 
