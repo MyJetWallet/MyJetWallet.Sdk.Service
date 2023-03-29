@@ -164,9 +164,9 @@ The `MyJetWallet.Sdk.Service.Test` namespace contains 5 named types.
 The *MyJetWallet.Sdk.Service.csproj* project file contains:
 
 - 5 namespaces.
-- 34 named types.
-- 1,462 total lines of source code.
-- Approximately 424 lines of executable code.
+- 36 named types.
+- 1,517 total lines of source code.
+- Approximately 435 lines of executable code.
 - The highest cyclomatic complexity is 22 :exploding_head:.
 
 <details>
@@ -320,12 +320,66 @@ The `MyJetWallet.Sdk.Service.Tools.JsonMaskConverter` namespace contains 5 named
 </summary>
 <br>
 
-The `MyJetWallet.Sdk.Service.LivenessProbs` namespace contains 1 named types.
+The `MyJetWallet.Sdk.Service.LivenessProbs` namespace contains 3 named types.
 
-- 1 named types.
-- 39 total lines of source code.
-- Approximately 11 lines of executable code.
+- 3 named types.
+- 92 total lines of source code.
+- Approximately 21 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="isalive2middleware">
+    IsAlive2Middleware :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `IsAlive2Middleware` contains 6 members.
+- 50 total lines of source code.
+- Approximately 10 lines of executable code.
+- The highest cyclomatic complexity is 3 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L17' title='string IsAlive2Middleware._isAliveData'>17</a> | 93 | 0 :heavy_check_mark: | 0 | 1 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L14' title='ILogger<LivnessMiddleware> IsAlive2Middleware._logger'>14</a> | 100 | 0 :heavy_check_mark: | 0 | 2 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L15' title='LivenessManager IsAlive2Middleware._manager'>15</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L13' title='RequestDelegate IsAlive2Middleware._next'>13</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L19' title='IsAlive2Middleware.IsAlive2Middleware(RequestDelegate next, ILogger<LivnessMiddleware> logger)'>19</a> | 85 | 1 :heavy_check_mark: | 0 | 3 | 7 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L27' title='Task IsAlive2Middleware.InvokeAsync(HttpContext context)'>27</a> | 65 | 3 :heavy_check_mark: | 0 | 8 | 24 / 7 |
+
+<a href="#IsAlive2Middleware-class-diagram">:link: to `IsAlive2Middleware` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-livenessprobs">:top: back to MyJetWallet.Sdk.Service.LivenessProbs</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="isalive2middleware-isalivedata">
+    IsAlive2Middleware.IsAliveData :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `IsAlive2Middleware.IsAliveData` contains 4 members.
+- 8 total lines of source code.
+- Approximately 0 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L56' title='string IsAliveData.env_info'>56</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L54' title='string IsAliveData.name'>54</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L57' title='long IsAliveData.started'>57</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L55' title='string IsAliveData.version'>55</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+
+<a href="#IsAlive2Middleware.IsAliveData-class-diagram">:link: to `IsAlive2Middleware.IsAliveData` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-livenessprobs">:top: back to MyJetWallet.Sdk.Service.LivenessProbs</a>
+
+</details>
 
 <details>
 <summary>
@@ -437,8 +491,8 @@ The `MyJetWallet.Sdk.Service.LivnesProbs` namespace contains 2 named types.
 The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 - 22 named types.
-- 1,041 total lines of source code.
-- Approximately 314 lines of executable code.
+- 1,043 total lines of source code.
+- Approximately 315 lines of executable code.
 - The highest cyclomatic complexity is 12 :x:.
 
 <details>
@@ -976,16 +1030,16 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 <br>
 
 - The `StartupHelper` contains 4 members.
-- 66 total lines of source code.
-- Approximately 26 lines of executable code.
+- 68 total lines of source code.
+- Approximately 27 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L25' title='IServiceCollection StartupHelper.BindCodeFirstGrpc(IServiceCollection services, Action<GrpcServiceOptions>? configureOptions = null)'>25</a> | 65 | 2 :heavy_check_mark: | 0 | 5 | 18 / 9 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L44' title='void StartupHelper.ConfigureJetWallet<TLifetimeManager>(IServiceCollection services, string zipkinUrl, string appNamePrefix = "SP-")'>44</a> | 75 | 1 :heavy_check_mark: | 0 | 9 | 8 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L53' title='void StartupHelper.ConfigureJetWallet(IApplicationBuilder app, IWebHostEnvironment env, Action<IEndpointRouteBuilder> configureGrpcServices)'>53</a> | 64 | 3 :heavy_check_mark: | 0 | 5 | 30 / 12 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L84' title='void StartupHelper.ConfigureJetWallet(ContainerBuilder builder)'>84</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L53' title='void StartupHelper.ConfigureJetWallet(IApplicationBuilder app, IWebHostEnvironment env, Action<IEndpointRouteBuilder> configureGrpcServices)'>53</a> | 63 | 3 :heavy_check_mark: | 0 | 5 | 32 / 13 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L86' title='void StartupHelper.ConfigureJetWallet(ContainerBuilder builder)'>86</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#StartupHelper-class-diagram">:link: to `StartupHelper` class diagram</a>
 
@@ -1376,6 +1430,38 @@ class MyNameJsonMaskConverter{
 classDiagram
 class MyPhoneJsonMaskConverter{
     +.ctor() MyPhoneJsonMaskConverter
+}
+
+```
+
+<div id="IsAlive2Middleware-class-diagram"></div>
+
+##### `IsAlive2Middleware` class diagram
+
+```mermaid
+classDiagram
+class IsAlive2Middleware{
+    -RequestDelegate _next
+    -ILogger<LivnessMiddleware> _logger
+    -LivenessManager _manager
+    -string _isAliveData$
+    +.ctor(RequestDelegate next, ILogger<LivnessMiddleware> logger) IsAlive2Middleware
+    +InvokeAsync(HttpContext context) Task
+}
+
+```
+
+<div id="IsAlive2Middleware.IsAliveData-class-diagram"></div>
+
+##### `IsAlive2Middleware.IsAliveData` class diagram
+
+```mermaid
+classDiagram
+class IsAliveData{
+    +string name
+    +string version
+    +string env_info
+    +long started
 }
 
 ```
