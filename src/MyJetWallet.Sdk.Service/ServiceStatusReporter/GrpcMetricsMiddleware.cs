@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -10,13 +9,10 @@ namespace MyJetWallet.Sdk.Service.ServiceStatusReporter;
 public class GrpcMetricsMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly Assembly _appAssembly;
-    private const string SystemLibsPattern = "System";
 
-    public GrpcMetricsMiddleware(RequestDelegate next, Assembly appAssembly)
+    public GrpcMetricsMiddleware(RequestDelegate next)
     {
         _next = next;
-        _appAssembly = appAssembly;
     }
 
     public async Task InvokeAsync(HttpContext context) =>
