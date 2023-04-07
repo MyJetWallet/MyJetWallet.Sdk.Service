@@ -163,10 +163,10 @@ The `MyJetWallet.Sdk.Service.Test` namespace contains 5 named types.
 
 The *MyJetWallet.Sdk.Service.csproj* project file contains:
 
-- 5 namespaces.
-- 36 named types.
-- 1,517 total lines of source code.
-- Approximately 435 lines of executable code.
+- 6 namespaces.
+- 43 named types.
+- 1,655 total lines of source code.
+- Approximately 467 lines of executable code.
 - The highest cyclomatic complexity is 22 :exploding_head:.
 
 <details>
@@ -323,7 +323,7 @@ The `MyJetWallet.Sdk.Service.Tools.JsonMaskConverter` namespace contains 5 named
 The `MyJetWallet.Sdk.Service.LivenessProbs` namespace contains 3 named types.
 
 - 3 named types.
-- 92 total lines of source code.
+- 93 total lines of source code.
 - Approximately 21 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
 
@@ -342,12 +342,12 @@ The `MyJetWallet.Sdk.Service.LivenessProbs` namespace contains 3 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L17' title='string IsAlive2Middleware._isAliveData'>17</a> | 93 | 0 :heavy_check_mark: | 0 | 1 | 1 / 1 |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L14' title='ILogger<LivnessMiddleware> IsAlive2Middleware._logger'>14</a> | 100 | 0 :heavy_check_mark: | 0 | 2 | 1 / 0 |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L15' title='LivenessManager IsAlive2Middleware._manager'>15</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L13' title='RequestDelegate IsAlive2Middleware._next'>13</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L19' title='IsAlive2Middleware.IsAlive2Middleware(RequestDelegate next, ILogger<LivnessMiddleware> logger)'>19</a> | 85 | 1 :heavy_check_mark: | 0 | 3 | 7 / 2 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L27' title='Task IsAlive2Middleware.InvokeAsync(HttpContext context)'>27</a> | 65 | 3 :heavy_check_mark: | 0 | 8 | 24 / 7 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L18' title='string IsAlive2Middleware._isAliveData'>18</a> | 93 | 0 :heavy_check_mark: | 0 | 1 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L15' title='ILogger<LivnessMiddleware> IsAlive2Middleware._logger'>15</a> | 100 | 0 :heavy_check_mark: | 0 | 2 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L16' title='LivenessManager IsAlive2Middleware._manager'>16</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L14' title='RequestDelegate IsAlive2Middleware._next'>14</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L20' title='IsAlive2Middleware.IsAlive2Middleware(RequestDelegate next, ILogger<LivnessMiddleware> logger)'>20</a> | 85 | 1 :heavy_check_mark: | 0 | 3 | 7 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L28' title='Task IsAlive2Middleware.InvokeAsync(HttpContext context)'>28</a> | 65 | 3 :heavy_check_mark: | 0 | 8 | 24 / 7 |
 
 <a href="#IsAlive2Middleware-class-diagram">:link: to `IsAlive2Middleware` class diagram</a>
 
@@ -370,10 +370,10 @@ The `MyJetWallet.Sdk.Service.LivenessProbs` namespace contains 3 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L56' title='string IsAliveData.env_info'>56</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L54' title='string IsAliveData.name'>54</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L57' title='long IsAliveData.started'>57</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L55' title='string IsAliveData.version'>55</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L57' title='string IsAliveData.env_info'>57</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L55' title='string IsAliveData.name'>55</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L58' title='long IsAliveData.started'>58</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LivenessProbs/IsAlive2Middleware.cs#L56' title='string IsAliveData.version'>56</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
 
 <a href="#IsAlive2Middleware.IsAliveData-class-diagram">:link: to `IsAlive2Middleware.IsAliveData` class diagram</a>
 
@@ -488,11 +488,11 @@ The `MyJetWallet.Sdk.Service.LivnesProbs` namespace contains 2 named types.
 </summary>
 <br>
 
-The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
+The `MyJetWallet.Sdk.Service` namespace contains 23 named types.
 
-- 22 named types.
-- 1,043 total lines of source code.
-- Approximately 315 lines of executable code.
+- 23 named types.
+- 1,061 total lines of source code.
+- Approximately 324 lines of executable code.
 - The highest cyclomatic complexity is 12 :x:.
 
 <details>
@@ -510,7 +510,7 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L272' title='void ActivityEnricher.Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)'>272</a> | 65 | 3 :heavy_check_mark: | 0 | 7 | 18 / 9 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L270' title='void ActivityEnricher.Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)'>270</a> | 65 | 3 :heavy_check_mark: | 0 | 7 | 18 / 9 |
 
 <a href="#ActivityEnricher-class-diagram">:link: to `ActivityEnricher` class diagram</a>
 
@@ -533,13 +533,39 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L329' title='TimeSpan ActivityExtensions.GetActivityDuration(Activity activity)'>329</a> | 100 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L324' title='string ActivityExtensions.GetActivityId(Activity activity)'>324</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L314' title='string ActivityExtensions.GetParentId(Activity activity)'>314</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L294' title='string ActivityExtensions.GetSpanId(Activity activity)'>294</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L304' title='string ActivityExtensions.GetTraceId(Activity activity)'>304</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L327' title='TimeSpan ActivityExtensions.GetActivityDuration(Activity activity)'>327</a> | 100 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L322' title='string ActivityExtensions.GetActivityId(Activity activity)'>322</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L312' title='string ActivityExtensions.GetParentId(Activity activity)'>312</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L292' title='string ActivityExtensions.GetSpanId(Activity activity)'>292</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L302' title='string ActivityExtensions.GetTraceId(Activity activity)'>302</a> | 94 | 2 :heavy_check_mark: | 0 | 2 | 9 / 1 |
 
 <a href="#ActivityExtensions-class-diagram">:link: to `ActivityExtensions` class diagram</a>
+
+<a href="#myjetwallet-sdk-service">:top: back to MyJetWallet.Sdk.Service</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="applicationbuilderutils">
+    ApplicationBuilderUtils :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `ApplicationBuilderUtils` contains 4 members.
+- 14 total lines of source code.
+- Approximately 8 lines of executable code.
+- The highest cyclomatic complexity is 1 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ApplicationBuilderUtils.cs#L19' title='void ApplicationBuilderUtils.BindDependenciesTree(IApplicationBuilder app, Assembly appAssembly)'>19</a> | 86 | 1 :heavy_check_mark: | 0 | 5 | 1 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ApplicationBuilderUtils.cs#L21' title='void ApplicationBuilderUtils.BindGrpcMetrics(IApplicationBuilder app)'>21</a> | 87 | 1 :heavy_check_mark: | 0 | 4 | 1 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ApplicationBuilderUtils.cs#L12' title='void ApplicationBuilderUtils.BindIsAliveEndpoint(IApplicationBuilder app)'>12</a> | 87 | 1 :heavy_check_mark: | 0 | 5 | 1 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ApplicationBuilderUtils.cs#L14' title='void ApplicationBuilderUtils.BindIsAliveEndpoint(IApplicationBuilder app, IDictionary<string, string> envVariables)'>14</a> | 86 | 1 :heavy_check_mark: | 0 | 5 | 4 / 2 |
+
+<a href="#ApplicationBuilderUtils-class-diagram">:link: to `ApplicationBuilderUtils` class diagram</a>
 
 <a href="#myjetwallet-sdk-service">:top: back to MyJetWallet.Sdk.Service</a>
 
@@ -623,7 +649,7 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L264' title='ElasticsearchUrlsConfig ElasticsearchConfig.ElasticsearchLogs'>264</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L262' title='ElasticsearchUrlsConfig ElasticsearchConfig.ElasticsearchLogs'>262</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
 
 <a href="#LogConfigurator.ElasticsearchConfig-class-diagram">:link: to `LogConfigurator.ElasticsearchConfig` class diagram</a>
 
@@ -646,8 +672,8 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L259' title='string ElasticsearchUrlsConfig.IndexPrefixName'>259</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L258' title='IReadOnlyCollection<string> ElasticsearchUrlsConfig.NodeUrls'>258</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L257' title='string ElasticsearchUrlsConfig.IndexPrefixName'>257</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L256' title='IReadOnlyCollection<string> ElasticsearchUrlsConfig.NodeUrls'>256</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
 
 <a href="#LogConfigurator.ElasticsearchUrlsConfig-class-diagram">:link: to `LogConfigurator.ElasticsearchUrlsConfig` class diagram</a>
 
@@ -674,7 +700,7 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/HexConverterUtils.cs#L26' title='Dictionary<char, byte> HexConverterUtils.FirstByte'>26</a> | 77 | 0 :heavy_check_mark: | 0 | 2 | 18 / 1 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/HexConverterUtils.cs#L85' title='byte[] HexConverterUtils.HexStringToByteArray(string hexString)'>85</a> | 60 | 2 :heavy_check_mark: | 0 | 2 | 17 / 12 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/HexConverterUtils.cs#L45' title='Dictionary<char, byte> HexConverterUtils.SecondByte'>45</a> | 77 | 0 :heavy_check_mark: | 0 | 2 | 18 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/HexConverterUtils.cs#L65' title='string HexConverterUtils.ToHexString(byte[] bytes)'>65</a> | 57 | 2 :heavy_check_mark: | 0 | 1 | 19 / 14 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/HexConverterUtils.cs#L65' title='string HexConverterUtils.ToHexString(byte[] bytes)'>65</a> | 58 | 2 :heavy_check_mark: | 0 | 1 | 19 / 14 |
 
 <a href="#HexConverterUtils-class-diagram">:link: to `HexConverterUtils` class diagram</a>
 
@@ -720,15 +746,15 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L183' title='IConfigurationRoot LogConfigurator.BuildConfigRoot()'>183</a> | 76 | 1 :heavy_check_mark: | 0 | 4 | 12 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L147' title='ILoggerFactory LogConfigurator.Configure(string productName = null, string seqServiceUrl = null)'>147</a> | 59 | 1 :heavy_check_mark: | 0 | 7 | 35 / 16 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L23' title='ILoggerFactory LogConfigurator.ConfigureElk_v2(string productName = null, string seqServiceUrl = null, LogElkSettings logElkSettings = null)'>23</a> | 55 | 1 :heavy_check_mark: | 0 | 8 | 46 / 21 |
-| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L21' title='ILoggerFactory LogConfigurator.LoggerFactoryInstance'>21</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L70' title='void LogConfigurator.OverrideLogLevel(LoggerConfiguration config)'>70</a> | 91 | 1 :heavy_check_mark: | 0 | 2 | 11 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L212' title='void LogConfigurator.SetupConsole(IConfigurationRoot configRoot, LoggerConfiguration config)'>212</a> | 57 | 4 :heavy_check_mark: | 0 | 4 | 31 / 18 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L82' title='void LogConfigurator.SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)'>82</a> | 50 | 10 :radioactive: | 0 | 10 | 64 / 25 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L196' title='void LogConfigurator.SetupProperty(string productName, LoggerConfiguration config)'>196</a> | 73 | 3 :heavy_check_mark: | 0 | 4 | 15 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L244' title='void LogConfigurator.SetupSeq(LoggerConfiguration config, string seqServiceUrl)'>244</a> | 82 | 2 :heavy_check_mark: | 0 | 2 | 11 / 3 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L181' title='IConfigurationRoot LogConfigurator.BuildConfigRoot()'>181</a> | 76 | 1 :heavy_check_mark: | 0 | 4 | 12 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L145' title='ILoggerFactory LogConfigurator.Configure(string productName = null, string seqServiceUrl = null)'>145</a> | 59 | 1 :heavy_check_mark: | 0 | 7 | 35 / 16 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L21' title='ILoggerFactory LogConfigurator.ConfigureElk_v2(string productName = null, string seqServiceUrl = null, LogElkSettings logElkSettings = null)'>21</a> | 55 | 1 :heavy_check_mark: | 0 | 8 | 46 / 21 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L19' title='ILoggerFactory LogConfigurator.LoggerFactoryInstance'>19</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L68' title='void LogConfigurator.OverrideLogLevel(LoggerConfiguration config)'>68</a> | 91 | 1 :heavy_check_mark: | 0 | 2 | 11 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L210' title='void LogConfigurator.SetupConsole(IConfigurationRoot configRoot, LoggerConfiguration config)'>210</a> | 57 | 4 :heavy_check_mark: | 0 | 4 | 31 / 18 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L80' title='void LogConfigurator.SetupElk(LogElkSettings logElkSettings, LoggerConfiguration config)'>80</a> | 50 | 10 :radioactive: | 0 | 10 | 64 / 25 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L194' title='void LogConfigurator.SetupProperty(string productName, LoggerConfiguration config)'>194</a> | 73 | 3 :heavy_check_mark: | 0 | 4 | 15 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/LogConfigurator.cs#L242' title='void LogConfigurator.SetupSeq(LoggerConfiguration config, string seqServiceUrl)'>242</a> | 82 | 2 :heavy_check_mark: | 0 | 2 | 11 / 3 |
 
 <a href="#LogConfigurator-class-diagram">:link: to `LogConfigurator` class diagram</a>
 
@@ -777,11 +803,11 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L24' title='ILoggerFactory LogFactoryDatabaseWrapper._factory'>24</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L26' title='LogFactoryDatabaseWrapper.LogFactoryDatabaseWrapper(ILoggerFactory factory)'>26</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L36' title='void LogFactoryDatabaseWrapper.AddProvider(ILoggerProvider provider)'>36</a> | 97 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L41' title='ILogger LogFactoryDatabaseWrapper.CreateLogger(string categoryName)'>41</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L31' title='void LogFactoryDatabaseWrapper.Dispose()'>31</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L22' title='ILoggerFactory LogFactoryDatabaseWrapper._factory'>22</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L24' title='LogFactoryDatabaseWrapper.LogFactoryDatabaseWrapper(ILoggerFactory factory)'>24</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L34' title='void LogFactoryDatabaseWrapper.AddProvider(ILoggerProvider provider)'>34</a> | 97 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L39' title='ILogger LogFactoryDatabaseWrapper.CreateLogger(string categoryName)'>39</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L29' title='void LogFactoryDatabaseWrapper.Dispose()'>29</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#LogFactoryDatabaseWrapper-class-diagram">:link: to `LogFactoryDatabaseWrapper` class diagram</a>
 
@@ -804,11 +830,11 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L24' title='ILoggerFactory LogFactorySafeWrapper._factory'>24</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L26' title='LogFactorySafeWrapper.LogFactorySafeWrapper(ILoggerFactory factory)'>26</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L36' title='void LogFactorySafeWrapper.AddProvider(ILoggerProvider provider)'>36</a> | 97 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L41' title='ILogger LogFactorySafeWrapper.CreateLogger(string categoryName)'>41</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L31' title='void LogFactorySafeWrapper.Dispose()'>31</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L23' title='ILoggerFactory LogFactorySafeWrapper._factory'>23</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L25' title='LogFactorySafeWrapper.LogFactorySafeWrapper(ILoggerFactory factory)'>25</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L35' title='void LogFactorySafeWrapper.AddProvider(ILoggerProvider provider)'>35</a> | 97 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L40' title='ILogger LogFactorySafeWrapper.CreateLogger(string categoryName)'>40</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L30' title='void LogFactorySafeWrapper.Dispose()'>30</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#LogFactorySafeWrapper-class-diagram">:link: to `LogFactorySafeWrapper` class diagram</a>
 
@@ -831,11 +857,11 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L50' title='ILogger LoggerDatabaseWrapper._logger'>50</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L52' title='LoggerDatabaseWrapper.LoggerDatabaseWrapper(ILogger logger)'>52</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L57' title='IDisposable LoggerDatabaseWrapper.BeginScope<TState>(TState state)'>57</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L62' title='bool LoggerDatabaseWrapper.IsEnabled(LogLevel logLevel)'>62</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L67' title='void LoggerDatabaseWrapper.Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>67</a> | 78 | 3 :heavy_check_mark: | 0 | 6 | 8 / 3 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L48' title='ILogger LoggerDatabaseWrapper._logger'>48</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L50' title='LoggerDatabaseWrapper.LoggerDatabaseWrapper(ILogger logger)'>50</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L55' title='IDisposable LoggerDatabaseWrapper.BeginScope<TState>(TState state)'>55</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L60' title='bool LoggerDatabaseWrapper.IsEnabled(LogLevel logLevel)'>60</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L65' title='void LoggerDatabaseWrapper.Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>65</a> | 78 | 3 :heavy_check_mark: | 0 | 6 | 8 / 3 |
 
 <a href="#LoggerDatabaseWrapper-class-diagram">:link: to `LoggerDatabaseWrapper` class diagram</a>
 
@@ -858,12 +884,12 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L50' title='ILogger LoggerSafeWrapper._logger'>50</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L52' title='LoggerSafeWrapper.LoggerSafeWrapper(ILogger logger)'>52</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L57' title='IDisposable LoggerSafeWrapper.BeginScope<TState>(TState state)'>57</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L62' title='bool LoggerSafeWrapper.IsEnabled(LogLevel logLevel)'>62</a> | 78 | 1 :heavy_check_mark: | 0 | 4 | 12 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L75' title='void LoggerSafeWrapper.Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>75</a> | 75 | 1 :heavy_check_mark: | 0 | 6 | 13 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L89' title='void LoggerSafeWrapper.LogToConsole<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>89</a> | 76 | 1 :heavy_check_mark: | 0 | 5 | 12 / 4 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L49' title='ILogger LoggerSafeWrapper._logger'>49</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L51' title='LoggerSafeWrapper.LoggerSafeWrapper(ILogger logger)'>51</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L56' title='IDisposable LoggerSafeWrapper.BeginScope<TState>(TState state)'>56</a> | 96 | 1 :heavy_check_mark: | 0 | 3 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L61' title='bool LoggerSafeWrapper.IsEnabled(LogLevel logLevel)'>61</a> | 78 | 1 :heavy_check_mark: | 0 | 4 | 12 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L74' title='void LoggerSafeWrapper.Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>74</a> | 75 | 1 :heavy_check_mark: | 0 | 6 | 13 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L88' title='void LoggerSafeWrapper.LogToConsole<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)'>88</a> | 76 | 1 :heavy_check_mark: | 0 | 5 | 12 / 4 |
 
 <a href="#LoggerSafeWrapper-class-diagram">:link: to `LoggerSafeWrapper` class diagram</a>
 
@@ -909,8 +935,8 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L10' title='ILoggerFactory MyLoggerFactoryDatabaseWrapper.ToDatabaseLogger(ILoggerFactory factory)'>10</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L15' title='ILogger MyLoggerFactoryDatabaseWrapper.ToDatabaseLogger(ILogger logger)'>15</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L8' title='ILoggerFactory MyLoggerFactoryDatabaseWrapper.ToDatabaseLogger(ILoggerFactory factory)'>8</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactoryBatabaseWrapper.cs#L13' title='ILogger MyLoggerFactoryDatabaseWrapper.ToDatabaseLogger(ILogger logger)'>13</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#MyLoggerFactoryDatabaseWrapper-class-diagram">:link: to `MyLoggerFactoryDatabaseWrapper` class diagram</a>
 
@@ -933,8 +959,8 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L10' title='ILoggerFactory MyLoggerFactorySafeWrapper.ToSafeLogger(ILoggerFactory factory)'>10</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L15' title='ILogger MyLoggerFactorySafeWrapper.ToSaveLogger(ILogger logger)'>15</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L9' title='ILoggerFactory MyLoggerFactorySafeWrapper.ToSafeLogger(ILoggerFactory factory)'>9</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L14' title='ILogger MyLoggerFactorySafeWrapper.ToSaveLogger(ILogger logger)'>14</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#MyLoggerFactorySafeWrapper-class-diagram">:link: to `MyLoggerFactorySafeWrapper` class diagram</a>
 
@@ -1010,10 +1036,10 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L105' title='ILogger SerilogSafeWrapper._logger'>105</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L107' title='SerilogSafeWrapper.SerilogSafeWrapper(ILogger logger)'>107</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L126' title='void SerilogSafeWrapper.LogToConsole(LogEvent logEvent)'>126</a> | 84 | 1 :heavy_check_mark: | 0 | 3 | 11 / 3 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L112' title='void SerilogSafeWrapper.Write(LogEvent logEvent)'>112</a> | 79 | 1 :heavy_check_mark: | 0 | 4 | 13 / 4 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L104' title='ILogger SerilogSafeWrapper._logger'>104</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L106' title='SerilogSafeWrapper.SerilogSafeWrapper(ILogger logger)'>106</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L125' title='void SerilogSafeWrapper.LogToConsole(LogEvent logEvent)'>125</a> | 84 | 1 :heavy_check_mark: | 0 | 3 | 11 / 3 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/MyLoggerFactorySafeWrapper.cs#L111' title='void SerilogSafeWrapper.Write(LogEvent logEvent)'>111</a> | 79 | 1 :heavy_check_mark: | 0 | 4 | 13 / 4 |
 
 <a href="#SerilogSafeWrapper-class-diagram">:link: to `SerilogSafeWrapper` class diagram</a>
 
@@ -1030,15 +1056,15 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 <br>
 
 - The `StartupHelper` contains 4 members.
-- 68 total lines of source code.
-- Approximately 27 lines of executable code.
+- 70 total lines of source code.
+- Approximately 28 lines of executable code.
 - The highest cyclomatic complexity is 3 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L25' title='IServiceCollection StartupHelper.BindCodeFirstGrpc(IServiceCollection services, Action<GrpcServiceOptions>? configureOptions = null)'>25</a> | 65 | 2 :heavy_check_mark: | 0 | 5 | 18 / 9 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L44' title='void StartupHelper.ConfigureJetWallet<TLifetimeManager>(IServiceCollection services, string zipkinUrl, string appNamePrefix = "SP-")'>44</a> | 75 | 1 :heavy_check_mark: | 0 | 9 | 8 / 4 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L53' title='void StartupHelper.ConfigureJetWallet(IApplicationBuilder app, IWebHostEnvironment env, Action<IEndpointRouteBuilder> configureGrpcServices)'>53</a> | 63 | 3 :heavy_check_mark: | 0 | 5 | 32 / 13 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L23' title='IServiceCollection StartupHelper.BindCodeFirstGrpc(IServiceCollection services, Action<GrpcServiceOptions>? configureOptions = null)'>23</a> | 65 | 2 :heavy_check_mark: | 0 | 5 | 18 / 9 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L42' title='void StartupHelper.ConfigureJetWallet<TLifetimeManager>(IServiceCollection services, string zipkinUrl, string appNamePrefix = "SP-")'>42</a> | 75 | 1 :heavy_check_mark: | 0 | 9 | 8 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L51' title='void StartupHelper.ConfigureJetWallet(IApplicationBuilder app, IWebHostEnvironment env, Action<IEndpointRouteBuilder> configureGrpcServices)'>51</a> | 62 | 3 :heavy_check_mark: | 0 | 6 | 34 / 14 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/StartupHelper.cs#L86' title='void StartupHelper.ConfigureJetWallet(ContainerBuilder builder)'>86</a> | 100 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
 
 <a href="#StartupHelper-class-diagram">:link: to `StartupHelper` class diagram</a>
@@ -1076,6 +1102,182 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 
 <details>
 <summary>
+  <strong id="myjetwallet-sdk-service-servicestatusreporter">
+    MyJetWallet.Sdk.Service.ServiceStatusReporter :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+The `MyJetWallet.Sdk.Service.ServiceStatusReporter` namespace contains 6 named types.
+
+- 6 named types.
+- 118 total lines of source code.
+- Approximately 23 lines of executable code.
+- The highest cyclomatic complexity is 4 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="dependenciesmapapimodel">
+    DependenciesMapApiModel :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `DependenciesMapApiModel` contains 2 members.
+- 9 total lines of source code.
+- Approximately 1 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesMapApiModel.cs#L9' title='DependenciesMapApiModel DependenciesMapApiModel.Create(Dictionary<string, string> map)'>9</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesMapApiModel.cs#L7' title='Dictionary<string, string> DependenciesMapApiModel.DependenciesMap'>7</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+
+<a href="#DependenciesMapApiModel-class-diagram">:link: to `DependenciesMapApiModel` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="dependenciestreemiddleware">
+    DependenciesTreeMiddleware :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `DependenciesTreeMiddleware` contains 6 members.
+- 21 total lines of source code.
+- Approximately 8 lines of executable code.
+- The highest cyclomatic complexity is 3 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L13' title='Assembly DependenciesTreeMiddleware._appAssembly'>13</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L12' title='RequestDelegate DependenciesTreeMiddleware._next'>12</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L16' title='DependenciesTreeMiddleware.DependenciesTreeMiddleware(RequestDelegate next, Assembly appAssembly)'>16</a> | 85 | 1 :heavy_check_mark: | 0 | 2 | 5 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L25' title='DependenciesMapApiModel DependenciesTreeMiddleware.GetDependenciesTreeModel()'>25</a> | 75 | 3 :heavy_check_mark: | 0 | 5 | 5 / 4 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L22' title='Task DependenciesTreeMiddleware.InvokeAsync(HttpContext context)'>22</a> | 96 | 1 :heavy_check_mark: | 0 | 4 | 2 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/DependenciesTreeMiddleware.cs#L14' title='string DependenciesTreeMiddleware.SystemLibsPattern'>14</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+
+<a href="#DependenciesTreeMiddleware-class-diagram">:link: to `DependenciesTreeMiddleware` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="grpcmetricsmiddleware">
+    GrpcMetricsMiddleware :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `GrpcMetricsMiddleware` contains 6 members.
+- 31 total lines of source code.
+- Approximately 5 lines of executable code.
+- The highest cyclomatic complexity is 1 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L13' title='Assembly GrpcMetricsMiddleware._appAssembly'>13</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L12' title='RequestDelegate GrpcMetricsMiddleware._next'>12</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L16' title='GrpcMetricsMiddleware.GrpcMetricsMiddleware(RequestDelegate next, Assembly appAssembly)'>16</a> | 85 | 1 :heavy_check_mark: | 0 | 2 | 5 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L25' title='MetricsModel GrpcMetricsMiddleware.GetMetrics()'>25</a> | 94 | 1 :heavy_check_mark: | 0 | 4 | 8 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L22' title='Task GrpcMetricsMiddleware.InvokeAsync(HttpContext context)'>22</a> | 96 | 1 :heavy_check_mark: | 0 | 4 | 2 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L14' title='string GrpcMetricsMiddleware.SystemLibsPattern'>14</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+
+<a href="#GrpcMetricsMiddleware-class-diagram">:link: to `GrpcMetricsMiddleware` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="isaliveapimodel">
+    IsAliveApiModel :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `IsAliveApiModel` contains 6 members.
+- 14 total lines of source code.
+- Approximately 0 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L14' title='DateTime IsAliveApiModel.AppCompilationDate'>14</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L12' title='string? IsAliveApiModel.AppVersion'>12</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L16' title='string? IsAliveApiModel.EnvInfo'>16</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L18' title='IDictionary<string, string> IsAliveApiModel.EnvVariablesSha1'>18</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L10' title='string? IsAliveApiModel.FrameworkVersion'>10</a> | 100 | 2 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveApiModel.cs#L8' title='bool IsAliveApiModel.IsAlive'>8</a> | 100 | 2 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+
+<a href="#IsAliveApiModel-class-diagram">:link: to `IsAliveApiModel` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="isalivemiddleware">
+    IsAliveMiddleware :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `IsAliveMiddleware` contains 5 members.
+- 33 total lines of source code.
+- Approximately 9 lines of executable code.
+- The highest cyclomatic complexity is 4 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveMiddleware.cs#L12' title='IDictionary<string, string> IsAliveMiddleware._envVariables'>12</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveMiddleware.cs#L11' title='RequestDelegate IsAliveMiddleware._next'>11</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveMiddleware.cs#L14' title='IsAliveMiddleware.IsAliveMiddleware(RequestDelegate next, IDictionary<string, string> envVariables)'>14</a> | 85 | 1 :heavy_check_mark: | 0 | 2 | 5 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveMiddleware.cs#L22' title='IsAliveApiModel IsAliveMiddleware.GetIsAliveApiModel()'>22</a> | 67 | 4 :heavy_check_mark: | 0 | 8 | 19 / 6 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/IsAliveMiddleware.cs#L20' title='Task IsAliveMiddleware.InvokeAsync(HttpContext context)'>20</a> | 96 | 1 :heavy_check_mark: | 0 | 4 | 1 / 1 |
+
+<a href="#IsAliveMiddleware-class-diagram">:link: to `IsAliveMiddleware` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+<details>
+<summary>
+  <strong id="grpcmetricsmiddleware-metricsmodel">
+    GrpcMetricsMiddleware.MetricsModel :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `GrpcMetricsMiddleware.MetricsModel` contains 2 members.
+- 5 total lines of source code.
+- Approximately 0 lines of executable code.
+- The highest cyclomatic complexity is 2 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L38' title='Dictionary<string, Metric> MetricsModel.ClientMetrics'>38</a> | 100 | 2 :heavy_check_mark: | 0 | 2 | 1 / 0 |
+| Property | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/ServiceStatusReporter/GrpcMetricsMiddleware.cs#L37' title='Dictionary<string, Metric> MetricsModel.ServerMetrics'>37</a> | 100 | 2 :heavy_check_mark: | 0 | 2 | 1 / 0 |
+
+<a href="#GrpcMetricsMiddleware.MetricsModel-class-diagram">:link: to `GrpcMetricsMiddleware.MetricsModel` class diagram</a>
+
+<a href="#myjetwallet-sdk-service-servicestatusreporter">:top: back to MyJetWallet.Sdk.Service.ServiceStatusReporter</a>
+
+</details>
+
+</details>
+
+<details>
+<summary>
   <strong id="myjetwallet-sdk-service-tools">
     MyJetWallet.Sdk.Service.Tools :heavy_check_mark:
   </strong>
@@ -1085,7 +1287,7 @@ The `MyJetWallet.Sdk.Service` namespace contains 22 named types.
 The `MyJetWallet.Sdk.Service.Tools` namespace contains 4 named types.
 
 - 4 named types.
-- 164 total lines of source code.
+- 165 total lines of source code.
 - Approximately 45 lines of executable code.
 - The highest cyclomatic complexity is 5 :heavy_check_mark:.
 
@@ -1104,11 +1306,11 @@ The `MyJetWallet.Sdk.Service.Tools` namespace contains 4 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L8' title='List<T> MyBuffer<T>._data'>8</a> | 93 | 0 :heavy_check_mark: | 0 | 1 | 1 / 1 |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L9' title='object MyBuffer<T>._gate'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L11' title='void MyBuffer<T>.Add(T item)'>11</a> | 86 | 1 :heavy_check_mark: | 0 | 2 | 7 / 2 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L19' title='void MyBuffer<T>.AddRange(IEnumerable<T> items)'>19</a> | 86 | 1 :heavy_check_mark: | 0 | 3 | 7 / 2 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L27' title='List<T> MyBuffer<T>.ExtractAll()'>27</a> | 78 | 1 :heavy_check_mark: | 0 | 1 | 9 / 4 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L9' title='List<T> MyBuffer<T>._data'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 1 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L10' title='object MyBuffer<T>._gate'>10</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L12' title='void MyBuffer<T>.Add(T item)'>12</a> | 86 | 1 :heavy_check_mark: | 0 | 2 | 7 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L20' title='void MyBuffer<T>.AddRange(IEnumerable<T> items)'>20</a> | 86 | 1 :heavy_check_mark: | 0 | 3 | 7 / 2 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/MyJetWallet.Sdk.Service/Tools/MyBuffer.cs#L28' title='List<T> MyBuffer<T>.ExtractAll()'>28</a> | 78 | 1 :heavy_check_mark: | 0 | 1 | 9 / 4 |
 
 <a href="#MyBuffer&lt;T&gt;-class-diagram">:link: to `MyBuffer&lt;T&gt;` class diagram</a>
 
@@ -1249,9 +1451,9 @@ The `TestApp` namespace contains 2 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L64' title='ILogger MyLogger._logger'>64</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L66' title='MyLogger.MyLogger(ILogger logger)'>66</a> | 96 | 1 :heavy_check_mark: | 0 | 2 | 4 / 1 |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L71' title='void MyLogger.Write(LogEvent logEvent)'>71</a> | 88 | 1 :heavy_check_mark: | 0 | 3 | 5 / 2 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L62' title='ILogger MyLogger._logger'>62</a> | 100 | 0 :heavy_check_mark: | 0 | 1 | 1 / 0 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L64' title='MyLogger.MyLogger(ILogger logger)'>64</a> | 96 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L69' title='void MyLogger.Write(LogEvent logEvent)'>69</a> | 88 | 1 :heavy_check_mark: | 0 | 3 | 5 / 2 |
 
 <a href="#MyLogger-class-diagram">:link: to `MyLogger` class diagram</a>
 
@@ -1274,7 +1476,7 @@ The `TestApp` namespace contains 2 named types.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L16' title='Task Program.Main(string[] args)'>16</a> | 67 | 2 :heavy_check_mark: | 0 | 4 | 44 / 7 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.Sdk.Service/blob/master/src/TestApp/Program.cs#L14' title='Task Program.Main(string[] args)'>14</a> | 67 | 2 :heavy_check_mark: | 0 | 4 | 44 / 7 |
 
 <a href="#Program-class-diagram">:link: to `Program` class diagram</a>
 
@@ -1537,6 +1739,21 @@ class ActivityExtensions{
     +GetParentId(Activity activity)$ string
     +GetActivityId(Activity activity)$ string
     +GetActivityDuration(Activity activity)$ TimeSpan
+}
+
+```
+
+<div id="ApplicationBuilderUtils-class-diagram"></div>
+
+##### `ApplicationBuilderUtils` class diagram
+
+```mermaid
+classDiagram
+class ApplicationBuilderUtils{
+    +BindIsAliveEndpoint(IApplicationBuilder app)$ void
+    +BindIsAliveEndpoint(IApplicationBuilder app, IDictionary<string, string> envVariables)$ void
+    +BindDependenciesTree(IApplicationBuilder app, Assembly appAssembly)$ void
+    +BindGrpcMetrics(IApplicationBuilder app)$ void
 }
 
 ```
@@ -1844,6 +2061,99 @@ class Utils{
     +EncodeToSha1(string str)$ byte[]
     +ToJson(object obj)$ string
     +FromJson<T>(string json)$ T
+}
+
+```
+
+<div id="DependenciesMapApiModel-class-diagram"></div>
+
+##### `DependenciesMapApiModel` class diagram
+
+```mermaid
+classDiagram
+class DependenciesMapApiModel{
+    +Dictionary<string, string> DependenciesMap
+    +Create(Dictionary<string, string> map)$ DependenciesMapApiModel
+}
+
+```
+
+<div id="DependenciesTreeMiddleware-class-diagram"></div>
+
+##### `DependenciesTreeMiddleware` class diagram
+
+```mermaid
+classDiagram
+class DependenciesTreeMiddleware{
+    -RequestDelegate _next
+    -Assembly _appAssembly
+    -string SystemLibsPattern$
+    +.ctor(RequestDelegate next, Assembly appAssembly) DependenciesTreeMiddleware
+    +InvokeAsync(HttpContext context) Task
+    +GetDependenciesTreeModel() DependenciesMapApiModel
+}
+
+```
+
+<div id="GrpcMetricsMiddleware-class-diagram"></div>
+
+##### `GrpcMetricsMiddleware` class diagram
+
+```mermaid
+classDiagram
+class GrpcMetricsMiddleware{
+    -RequestDelegate _next
+    -Assembly _appAssembly
+    -string SystemLibsPattern$
+    +.ctor(RequestDelegate next, Assembly appAssembly) GrpcMetricsMiddleware
+    +InvokeAsync(HttpContext context) Task
+    +GetMetrics() MetricsModel
+}
+
+```
+
+<div id="IsAliveApiModel-class-diagram"></div>
+
+##### `IsAliveApiModel` class diagram
+
+```mermaid
+classDiagram
+class IsAliveApiModel{
+    +bool IsAlive
+    +string? FrameworkVersion
+    +string? AppVersion
+    +DateTime AppCompilationDate
+    +string? EnvInfo
+    +IDictionary<string, string> EnvVariablesSha1
+}
+
+```
+
+<div id="IsAliveMiddleware-class-diagram"></div>
+
+##### `IsAliveMiddleware` class diagram
+
+```mermaid
+classDiagram
+class IsAliveMiddleware{
+    -RequestDelegate _next
+    -IDictionary<string, string> _envVariables
+    +.ctor(RequestDelegate next, IDictionary<string, string> envVariables) IsAliveMiddleware
+    +InvokeAsync(HttpContext context) Task
+    +GetIsAliveApiModel() IsAliveApiModel
+}
+
+```
+
+<div id="GrpcMetricsMiddleware.MetricsModel-class-diagram"></div>
+
+##### `GrpcMetricsMiddleware.MetricsModel` class diagram
+
+```mermaid
+classDiagram
+class MetricsModel{
+    +Dictionary<string, Metric> ServerMetrics
+    +Dictionary<string, Metric> ClientMetrics
 }
 
 ```
