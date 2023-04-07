@@ -1,7 +1,5 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
-using Serilog.Events;
 
 namespace MyJetWallet.Sdk.Service
 {
@@ -70,7 +68,7 @@ namespace MyJetWallet.Sdk.Service
             {
                 logLevel = LogLevel.Information;
             }
-            _logger.Log<TState>(logLevel, eventId, state, exception, formatter);
+            _logger.Log(logLevel, eventId, state, exception, formatter);
         }
     }
 }

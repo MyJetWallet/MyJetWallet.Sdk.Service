@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using System.Reflection;
 using Autofac;
 using Grpc.AspNetCore.Server;
@@ -16,7 +15,6 @@ using MyJetWallet.Sdk.Service.LivenessProbs;
 using MyJetWallet.Sdk.Service.LivnesProbs;
 using Prometheus;
 using ProtoBuf.Grpc.Server;
-using SimpleTrading.ServiceStatusReporterConnector;
 
 namespace MyJetWallet.Sdk.Service
 {
@@ -62,9 +60,11 @@ namespace MyJetWallet.Sdk.Service
 
             app.UseMetricServer();
 
-            app.BindServicesTree(Assembly.GetExecutingAssembly());
+            app.BindDependenciesTree(Assembly.GetExecutingAssembly());
 
-            app.BindIsAlive();
+            app.BindIsAliveEndpoint();
+
+            app.BindGrpcMetrics();
 
             app.UseMiddleware<LivnessMiddleware>();
             

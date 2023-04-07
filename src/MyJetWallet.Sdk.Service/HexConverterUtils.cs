@@ -23,7 +23,7 @@ namespace MyJetWallet.Sdk.Service
       'E',
       'F'
         };
-        private static readonly Dictionary<char, byte> FirstByte = new Dictionary<char, byte>()
+        private static readonly Dictionary<char, byte> FirstByte = new Dictionary<char, byte>
         {
             ['0'] = 0,
             ['1'] = 16,
@@ -42,7 +42,7 @@ namespace MyJetWallet.Sdk.Service
             ['E'] = 224,
             ['F'] = 240
         };
-        private static readonly Dictionary<char, byte> SecondByte = new Dictionary<char, byte>()
+        private static readonly Dictionary<char, byte> SecondByte = new Dictionary<char, byte>
         {
             ['0'] = 0,
             ['1'] = 1,
@@ -71,12 +71,12 @@ namespace MyJetWallet.Sdk.Service
                 char[] chArray2 = chArray1;
                 int index1 = num1;
                 int num3 = index1 + 1;
-                int digit1 = (int)HexConverterUtils.Digits[(int)num2 >> 4];
+                int digit1 = Digits[num2 >> 4];
                 chArray2[index1] = (char)digit1;
                 char[] chArray3 = chArray1;
                 int index2 = num3;
                 num1 = index2 + 1;
-                int digit2 = (int)HexConverterUtils.Digits[(int)num2 & 15];
+                int digit2 = Digits[num2 & 15];
                 chArray3[index2] = (char)digit2;
             }
             return new string(chArray1);
@@ -90,11 +90,11 @@ namespace MyJetWallet.Sdk.Service
             byte[] numArray = new byte[length];
             while (index1 < hexString.Length)
             {
-                byte num1 = HexConverterUtils.FirstByte[hexString[index1]];
+                byte num1 = FirstByte[hexString[index1]];
                 int index3 = index1 + 1;
-                byte num2 = HexConverterUtils.SecondByte[hexString[index3]];
+                byte num2 = SecondByte[hexString[index3]];
                 index1 = index3 + 1;
-                numArray[index2] = (byte)((uint)num1 + (uint)num2);
+                numArray[index2] = (byte)(num1 + (uint)num2);
                 ++index2;
             }
             return numArray;

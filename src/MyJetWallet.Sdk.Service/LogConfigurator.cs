@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
-using System.Threading;
 using Destructurama;
 using Elasticsearch.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.VisualBasic;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
@@ -108,7 +106,7 @@ namespace MyJetWallet.Sdk.Service
 
                 if (!urls.Any())
                 {
-                    Console.WriteLine($"ElasticSearch is DISABLES");
+                    Console.WriteLine("ElasticSearch is DISABLES");
                     return;
                 }
 
@@ -140,7 +138,7 @@ namespace MyJetWallet.Sdk.Service
             }
             else
             {
-                Console.WriteLine($"ElasticSearch is DISABLES");
+                Console.WriteLine("ElasticSearch is DISABLES");
             }
         }
 
@@ -226,7 +224,7 @@ namespace MyJetWallet.Sdk.Service
             {
                 var color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Env - ConsoleOutputLogLevel: <default>");
+                Console.WriteLine("Env - ConsoleOutputLogLevel: <default>");
                 Console.ForegroundColor = color;
 
                 config.WriteTo.Console();
@@ -236,7 +234,7 @@ namespace MyJetWallet.Sdk.Service
                 var color = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Env - ConsoleOutputLogLevel: <not specified> ({logLevel})");
-                Console.WriteLine($"Console log is disabled");
+                Console.WriteLine("Console log is disabled");
                 Console.ForegroundColor = color;
             }
         }

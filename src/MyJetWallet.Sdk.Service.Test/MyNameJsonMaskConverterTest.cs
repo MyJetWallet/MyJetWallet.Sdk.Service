@@ -63,11 +63,11 @@ public class MyNameJsonMaskConverterTest
         [Test]
         public void ArrayOfUsersLogMaskedAttribute()
         {
-            var users = new MyUsers()
+            var users = new MyUsers
             {
-                Users = new List<User>()
+                Users = new List<User>
                 {
-                    new User()
+                    new User
                     {
                         Id = Guid.NewGuid().ToString("N"),
                         UserName = null,
@@ -75,7 +75,7 @@ public class MyNameJsonMaskConverterTest
                         Card = null,
                         Token = null,
                     },
-                    new User()
+                    new User
                     {
                         Id = Guid.NewGuid().ToString("N"),
                         UserName = string.Empty,

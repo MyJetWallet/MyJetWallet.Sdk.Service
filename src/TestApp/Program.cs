@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.Service;
@@ -33,12 +31,12 @@ namespace TestApp
             
             
             
-            var elkSettings = new LogElkSettings()
+            var elkSettings = new LogElkSettings
             {
                 IndexPrefix = "test-01",
                 User = "***",
                 Password = "***",
-                Urls = new Dictionary<string, string>()
+                Urls = new Dictionary<string, string>
                 {
                     {"node1", "https://***:9243"},
                     {"node2", "https://***:9243"},
@@ -59,11 +57,11 @@ namespace TestApp
         }
     }
 
-    public class MyLogger: Serilog.ILogger
+    public class MyLogger: ILogger
     {
         private readonly ILogger _logger;
 
-        public MyLogger(Serilog.ILogger logger)
+        public MyLogger(ILogger logger)
         {
             _logger = logger;
         }

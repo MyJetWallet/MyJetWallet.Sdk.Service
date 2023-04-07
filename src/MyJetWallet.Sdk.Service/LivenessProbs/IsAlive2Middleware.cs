@@ -4,6 +4,7 @@ using DotNetCoreDecorators;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.Sdk.Service.LivnesProbs;
+
 // ReSharper disable InconsistentNaming
 
 namespace MyJetWallet.Sdk.Service.LivenessProbs;
@@ -30,7 +31,7 @@ public class IsAlive2Middleware
         {
             if (string.IsNullOrEmpty(_isAliveData))
             {
-                var data = new IsAliveData()
+                var data = new IsAliveData
                 {
                     name = ApplicationEnvironment.AppName,
                     env_info = ApplicationEnvironment.HostName,
