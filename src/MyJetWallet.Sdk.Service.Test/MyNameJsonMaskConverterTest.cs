@@ -54,10 +54,10 @@ public class MyNameJsonMaskConverterTest
             };
             var userMasked = JsonConvert.SerializeObject(user);
             var userFromJson = JsonConvert.DeserializeObject<User>(userMasked);
-            Assert.IsTrue(userFromJson?.UserName == "J*e");
-            Assert.IsTrue(userFromJson?.Email == "jo*************com");
-            Assert.IsTrue(userFromJson?.Token.PrivateToken == "***");
-            Assert.IsTrue(userFromJson?.Card == "622202***0085");
+            Assert.That(userFromJson?.UserName == "J*e");
+            Assert.That(userFromJson?.Email == "jo*************com", Is.True);
+            Assert.That(userFromJson?.Token.PrivateToken == "***", Is.True);
+            Assert.That(userFromJson?.Card == "622202***0085", Is.True);
         }
 
         [Test]
@@ -103,10 +103,10 @@ public class MyNameJsonMaskConverterTest
             };
             var userMasked = JsonConvert.SerializeObject(users);
             var usersFromJson = JsonConvert.DeserializeObject<MyUsers>(userMasked);
-            Assert.IsTrue(usersFromJson?.Author.UserName == "J*e");
-            Assert.IsTrue(usersFromJson?.Author.Email == "jo*************com");
-            Assert.IsTrue(usersFromJson?.Author.Token.PrivateToken == "***");
-            Assert.IsTrue(usersFromJson?.Author.Card == "622202***0085");
+            Assert.That(usersFromJson?.Author.UserName == "J*e", Is.True);
+            Assert.That(usersFromJson?.Author.Email == "jo*************com", Is.True);
+            Assert.That(usersFromJson?.Author.Token.PrivateToken == "***", Is.True);
+            Assert.That(usersFromJson?.Author.Card == "622202***0085", Is.True);
         }
     }
 }
