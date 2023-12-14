@@ -1,5 +1,6 @@
 using MyJetWallet.Sdk.Service.Tools.JsonMaskConverter;
 using Newtonsoft.Json;
+using NUnit.Framework.Legacy;
 
 namespace MyJetWallet.Sdk.Service.Test;
 
