@@ -53,8 +53,8 @@ namespace MyJetWallet.Sdk.Service
                                 if (context.Request.Path.ToString() == "/") return false;
                                 return true;
                             };
-                            options.EnableGrpcAspNetCoreSupport = true;
                         })
+                        .AddGrpcClientInstrumentation()
                         .AddEntityFrameworkCoreInstrumentation(option =>
                         {
                             option.SetDbStatementForText = setDbStatementForText;
