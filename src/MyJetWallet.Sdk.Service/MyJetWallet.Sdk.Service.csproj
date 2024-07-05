@@ -18,7 +18,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="MyJetWallet.Sdk.Grpc" Version="2.2.0" />
-    <PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="2.4.0" />
+    <PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="2.4.1" />
     <PackageReference Include="MyJetWallet.Sdk.GrpcSchema" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta2" />
