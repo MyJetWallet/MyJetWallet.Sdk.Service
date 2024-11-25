@@ -1,43 +1,45 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <OutputType>Library</OutputType>
-    <IsPackable>true</IsPackable>
-    <PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</RepositoryUrl>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<OutputType>Library</OutputType>
+		<IsPackable>true</IsPackable>
+		<PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.Sdk.Service</RepositoryUrl>
 
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Destructurama.Attributed" Version="4.0.0" />
-    <PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
-    <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
-    <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
-    <PackageReference Include="MyJetWallet.Sdk.Grpc" Version="2.2.0" />
-    <PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="2.4.1" />
-    <PackageReference Include="MyJetWallet.Sdk.GrpcSchema" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="OpenTelemetry.Contrib.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta2" />
-    <PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
-    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.1.1" />
-    <PackageReference Include="Serilog" Version="4.0.1" />
-    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
-    <PackageReference Include="Serilog.Enrichers.Context" Version="4.6.5" />
-    <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
-    <PackageReference Include="Serilog.Enrichers.ExceptionData" Version="1.0.0" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-    <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="10.0.0" />
-    <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
-    <PackageReference Include="OpenTelemetry.Exporter.Zipkin" Version="1.9.0" />
-    <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.9.0" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.9.0-beta.1" />
-    <PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
-    <PackageReference Include="MySettingsReader" Version="1.3.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+		<PackageReference Include="Destructurama.Attributed" Version="4.0.0" />
+		<PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.67.0" />
+		<PackageReference Include="JetBrains.Annotations" Version="2024.3.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.0" />
+		<PackageReference Include="MyJetWallet.Sdk.Grpc" Version="2.2.0" />
+		<PackageReference Include="MyJetWallet.Sdk.GrpcMetrics" Version="2.4.1" />
+		<PackageReference Include="MyJetWallet.Sdk.GrpcSchema" Version="2.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.EntityFrameworkCore" Version="1.0.0-beta.11" />
+		<PackageReference Include="prometheus-net.AspNetCore" Version="8.2.1" />
+		<PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
+		<PackageReference Include="Serilog" Version="4.1.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+		<PackageReference Include="Serilog.Enrichers.Context" Version="4.6.5" />
+		<PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
+		<PackageReference Include="Serilog.Enrichers.ExceptionData" Version="1.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" Version="10.0.0" />
+		<PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
+		<PackageReference Include="Serilog.Sinks.OpenTelemetry" Version="4.1.1" />
+		<PackageReference Include="OpenTelemetry.Exporter.Zipkin" Version="1.10.0" />
+		<PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.10.0" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.9.0" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.GrpcNetClient" Version="1.9.0-beta.1" />
+		<PackageReference Include="OpenTelemetry.Instrumentation.Http" Version="1.9.0" />
+		<PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.10.0" />
+		<PackageReference Include="MySettingsReader" Version="1.3.1" />
+	</ItemGroup>
 
 </Project>

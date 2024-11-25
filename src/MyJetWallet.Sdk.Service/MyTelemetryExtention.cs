@@ -6,6 +6,8 @@ using JetBrains.Annotations;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using OpenTelemetry;
+using OpenTelemetry.Exporter;
+using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 
@@ -33,9 +35,16 @@ namespace MyJetWallet.Sdk.Service
             Func<HttpRequest, bool> httpRequestFilter = null,
             IEnumerable<string> sources = null,
             bool errorStatusOnException = false,
-            bool setDbStatementForText = true)
+            bool setDbStatementForText = true,
+            string serviceName = default,
+            OtlpSettings otlpSettings = null)
         {
-            services
+            if (!string.IsNullOrEmpty(otlpSettings?.OtlpApiKey))
+            {
+                services.Configure<OtlpExporterOptions>(o =>
+                    o.Headers = $"{OtlpSettings.ApiKeyHeaderName}={otlpSettings.OtlpApiKey}");
+            }
+            var openTelementryBuilder = services
                 .AddOpenTelemetry()
                 .WithTracing(builder =>
                 {
@@ -59,13 +68,13 @@ namespace MyJetWallet.Sdk.Service
                         {
                             option.SetDbStatementForText = setDbStatementForText;
                         })
-                        .SetSampler(new AlwaysOnSampler())
+                        .SetSampler<AlwaysOnSampler>()
                         .AddSource(ApplicationEnvironment.AppName)
                         .AddSource("MyJetWallet")
                         .AddGrpcClientInstrumentation()
-                        .AddProcessor(new MyExceptionProcessor())
-                        .AddProcessor(new MySpanTraceProcessor())
-                        .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService($"{appNamePrefix}{ApplicationEnvironment.AppName}"));
+                        .AddProcessor<MyExceptionProcessor>()
+                        .AddProcessor<MySpanTraceProcessor>()
+                        .SetResourceBuilder(GetResourceBuilder(serviceName ?? $"{appNamePrefix}{ApplicationEnvironment.AppName}"));
 
                     if (errorStatusOnException)
                     {
@@ -89,13 +98,49 @@ namespace MyJetWallet.Sdk.Service
                             options.ExportProcessorType = ExportProcessorType.Batch;
                         });
 
-                        Console.WriteLine("Telemetry to Zipkin - ACTIVE");
+                        Console.WriteLine("Traces telemetry to Zipkin - ACTIVE");
                     }
                     else
                     {
-                        Console.WriteLine("Telemetry to Zipkin - DISABLED");
+                        Console.WriteLine("Traces telemetry to Zipkin - DISABLED");
                     }
-                });
+
+                    if (!string.IsNullOrEmpty(otlpSettings?.OtlpEndpoint))
+                    {
+                        builder.AddOtlpExporter(options =>
+                        {
+                            options.Endpoint = new Uri(otlpSettings.OtlpEndpoint);
+                            options.ExportProcessorType = ExportProcessorType.Batch;
+                        });
+
+                        Console.WriteLine("Traces telemetry to OpenTelemetryProtocol - ACTIVE");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Traces telemetry to OpenTelemetryProtocol - DISABLED");
+                    }
+                })
+              .WithMetrics(builder =>
+              {
+                  builder
+                    .SetResourceBuilder(GetResourceBuilder(serviceName ?? $"{appNamePrefix}{ApplicationEnvironment.AppName}"))
+                    .AddAspNetCoreInstrumentation()
+                    .AddHttpClientInstrumentation();
+                  if (!string.IsNullOrEmpty(otlpSettings?.OtlpEndpoint))
+                  {
+                      builder.AddOtlpExporter(options =>
+                      {
+                          options.Endpoint = new Uri(otlpSettings.OtlpEndpoint);
+                          options.ExportProcessorType = ExportProcessorType.Batch;
+                      });
+
+                      Console.WriteLine("Metrics telemetry to OpenTelemetryProtocol - ACTIVE");
+                  }
+                  else
+                  {
+                      Console.WriteLine("Metrics telemetry to OpenTelemetryProtocol - DISABLED");
+                  }
+              });
 
             return services;
         }
@@ -110,9 +155,9 @@ namespace MyJetWallet.Sdk.Service
         public static Activity FailActivity(this Exception ex)
         {
             var activity = Activity.Current;
-            
+
             if (activity == null) return activity;
-            
+
             activity.RecordException(ex);
             activity.SetStatus(Status.Error);
 
@@ -127,7 +172,7 @@ namespace MyJetWallet.Sdk.Service
             if (activity == null) return activity;
 
             activity.RecordException(ex);
-            
+
 
             return activity;
         }
@@ -148,6 +193,25 @@ namespace MyJetWallet.Sdk.Service
             return activity;
         }
 
+        public static ResourceBuilder GetResourceBuilder(
+        string serviceName = null,
+        string serviceNamespace = null,
+        string serviceVersion = null,
+        bool autoGenerateServiceInstanceId = true,
+        string serviceInstanceId = null)
+        {
+            serviceName ??= ApplicationEnvironment.AppName;
+            serviceNamespace ??= ApplicationEnvironment.Environment;
+            serviceVersion ??= ApplicationEnvironment.AppVersion;
 
+            return ResourceBuilder
+                .CreateDefault()
+                .AddService(
+                    serviceName,
+                    serviceNamespace,
+                    serviceVersion,
+                    autoGenerateServiceInstanceId,
+                    serviceInstanceId);
+        }
     }
 }
