@@ -11,13 +11,69 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 using Serilog.Sinks.Elasticsearch;
+using Serilog.Sinks.OpenTelemetry;
 
 namespace MyJetWallet.Sdk.Service
 {
     public static class LogConfigurator
     {
         public static ILoggerFactory LoggerFactoryInstance { get; private set; }
-        
+
+        public static ILoggerFactory ConfigureLogs(
+            string productName = default,
+            string serviceName = default,
+            string seqServiceUrl = default,
+            LogElkSettings logElkSettings = null,
+            OtlpSettings otlpSettings = null,
+            Func<LoggerConfiguration, LoggerConfiguration> configureLogs = null)
+        {
+            Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
+            Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
+
+            IConfigurationRoot configRoot = BuildConfigRoot();
+
+            var config = new LoggerConfiguration()
+                .ReadFrom.Configuration(configRoot)
+                .Enrich.FromLogContext()
+                .Enrich.With<ActivityEnricher>()
+                .Enrich.WithExceptionData()
+                .Enrich.WithCorrelationIdHeader()
+                .Destructure.UsingAttributes();
+
+            OverrideLogLevel(config);
+
+            SetupProperty(productName, config);
+
+            SetupConsole(configRoot, config);
+
+            SetupSeq(config, seqServiceUrl);
+
+            SetupOtlp(config, otlpSettings, serviceName);
+
+            SetupElk(logElkSettings, config);
+
+            if (configureLogs is not null)
+            {
+                config = configureLogs.Invoke(config);
+            }
+
+            Log.Logger = config.CreateLogger();
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
+            {
+                Log.Fatal((Exception)e.ExceptionObject, "Application has been terminated unexpectedly");
+                Log.CloseAndFlush();
+            };
+            AppDomain.CurrentDomain.ProcessExit += (sender, e) =>
+            {
+                Log.CloseAndFlush();
+            };
+
+            var factory = new LoggerFactory().AddSerilog().ToSafeLogger();
+            LoggerFactoryInstance = factory;
+            return factory;
+        }
+
         public static ILoggerFactory ConfigureElk_v2(
             string productName = default,
             string seqServiceUrl = default,
@@ -29,7 +85,6 @@ namespace MyJetWallet.Sdk.Service
             IConfigurationRoot configRoot = BuildConfigRoot();
 
             var config = new LoggerConfiguration()
-
                 .ReadFrom.Configuration(configRoot)
                 .Enrich.FromLogContext()
                 .Enrich.With<ActivityEnricher>()
@@ -48,7 +103,7 @@ namespace MyJetWallet.Sdk.Service
             SetupElk(logElkSettings, config);
 
             //Log.Logger = new SerilogSafeWrapper(config.CreateLogger());
-            Log.Logger =config.CreateLogger();
+            Log.Logger = config.CreateLogger();
 
             AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
             {
@@ -63,6 +118,32 @@ namespace MyJetWallet.Sdk.Service
             var factory = new LoggerFactory().AddSerilog().ToSafeLogger();
             LoggerFactoryInstance = factory;
             return factory;
+        }
+
+        private static void SetupOtlp(LoggerConfiguration config, OtlpSettings otlpSettings, string serviceName = default)
+        {
+            if (!string.IsNullOrEmpty(otlpSettings?.OtlpEndpoint))
+            {
+                var resource = MyTelemetry.GetResourceBuilder(serviceName).Build();
+                config.WriteTo.OpenTelemetry(options =>
+                {
+                    if (!string.IsNullOrEmpty(otlpSettings.OtlpApiKey))
+                    {
+                        options.Headers.Add(OtlpSettings.ApiKeyHeaderName, otlpSettings.OtlpApiKey);
+                    }
+                    options.Endpoint = otlpSettings.OtlpEndpoint;
+                    options.IncludedData =
+                        IncludedData.TraceIdField |
+                        IncludedData.SpanIdField;
+                    options.ResourceAttributes = resource.Attributes.ToDictionary(x => x.Key, x => x.Value);
+                });
+                Console.WriteLine("Logs otlp exporter - ACTIVE");
+            }
+            else
+            {
+                Console.WriteLine("Logs otlp exporter - DISABLED");
+            }
+
         }
 
         private static void OverrideLogLevel(LoggerConfiguration config)
@@ -82,17 +163,17 @@ namespace MyJetWallet.Sdk.Service
             if (logElkSettings?.Urls?.Any() == true && logElkSettings.Urls.All(e => !string.IsNullOrEmpty(e.Value) && e.Value != "null"))
             {
                 var prefix = !string.IsNullOrEmpty(logElkSettings.IndexPrefix) ? logElkSettings.IndexPrefix : "jet-logs-def";
-                
+
                 var urls = new List<Uri>();
                 var httpClient = new HttpClient();
                 httpClient.Timeout = TimeSpan.FromSeconds(5);
-                
+
                 foreach (var url in logElkSettings.Urls.Values)
                 {
                     try
                     {
                         var resp = httpClient.GetAsync(url).GetAwaiter().GetResult();
-                        
+
                         urls.Add(new Uri(url));
                     }
                     catch (Exception ex)
@@ -106,7 +187,7 @@ namespace MyJetWallet.Sdk.Service
 
                 if (!urls.Any())
                 {
-                    Console.WriteLine("ElasticSearch is DISABLES");
+                    Console.WriteLine("ElasticSearch is DISABLED");
                     return;
                 }
 
@@ -118,7 +199,7 @@ namespace MyJetWallet.Sdk.Service
                     TypeName = null,
                     IndexDecider = (e, o) => $"{prefix}-{o.Date:yyyy-MM-dd}",
                     BatchAction = ElasticOpType.Create,
-                    
+
                     ModifyConnectionSettings = configuration =>
                     {
                         configuration.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
@@ -127,18 +208,18 @@ namespace MyJetWallet.Sdk.Service
                         {
                             configuration.BasicAuthentication(logElkSettings.User, logElkSettings.Password);
                         }
-                        
+
                         return configuration;
                     }
                 };
-                
+
                 config.WriteTo.Elasticsearch(option);
 
                 Console.WriteLine($"SETUP LOGGING TO ElasticSearch. Url Count: {urls.Count}. Index name: {prefix}-yyyy-MM-dd");
             }
             else
             {
-                Console.WriteLine("ElasticSearch is DISABLES");
+                Console.WriteLine("ElasticSearch is DISABLED");
             }
         }
 
@@ -278,7 +359,7 @@ namespace MyJetWallet.Sdk.Service
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Parent_Id", new ScalarValue(activity.GetParentId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Id", new ScalarValue(activity.GetActivityId())));
                 logEvent.AddPropertyIfAbsent(new LogEventProperty("Activity_Duration", new ScalarValue(activity.GetActivityDuration())));
-                
+
                 foreach (var pair in activity.Baggage)
                 {
                     logEvent.AddPropertyIfAbsent(new LogEventProperty($"bag-{pair.Key}", new ScalarValue(pair.Value)));
