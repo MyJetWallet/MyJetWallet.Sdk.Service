@@ -94,7 +94,16 @@ namespace MyJetWallet.Sdk.Service
                     options.IncludedData =
                         IncludedData.TraceIdField |
                         IncludedData.SpanIdField;
-                    options.ResourceAttributes = resource.Attributes.ToDictionary(x => x.Key, x => x.Value);
+                    
+                    var attributes = new Dictionary<string, object>();
+                    if (resource.Attributes != null)
+                    {
+                        foreach (var pair in resource.Attributes)
+                        {
+                            attributes[pair.Key] = pair.Value;
+                        }
+                    }
+                    options.ResourceAttributes = attributes;
                 });
                 Console.WriteLine("Logs otlp exporter - ACTIVE");
             }
