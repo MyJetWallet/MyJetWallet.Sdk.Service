@@ -19,16 +19,20 @@ namespace MyJetWallet.Sdk.Service
     {
         public static ILoggerFactory LoggerFactoryInstance { get; private set; }
 
-        public static ILoggerFactory ConfigureLogs(
+        public static ILoggerFactory ConfigureElk_v2(
             string productName = default,
-            string serviceName = default,
             string seqServiceUrl = default,
             LogElkSettings logElkSettings = null,
             OtlpSettings otlpSettings = null,
+            string serviceName = default,
             Func<LoggerConfiguration, LoggerConfiguration> configureLogs = null)
         {
             Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
             Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
+            if (string.IsNullOrEmpty(serviceName))
+            {
+                serviceName = ApplicationEnvironment.AppName;
+            }
 
             IConfigurationRoot configRoot = BuildConfigRoot();
 
@@ -47,60 +51,15 @@ namespace MyJetWallet.Sdk.Service
             SetupConsole(configRoot, config);
 
             SetupSeq(config, seqServiceUrl);
-
+            
             SetupOtlp(config, otlpSettings, serviceName);
 
             SetupElk(logElkSettings, config);
-
+            
             if (configureLogs is not null)
             {
                 config = configureLogs.Invoke(config);
             }
-
-            Log.Logger = config.CreateLogger();
-
-            AppDomain.CurrentDomain.UnhandledException += (sender, e) =>
-            {
-                Log.Fatal((Exception)e.ExceptionObject, "Application has been terminated unexpectedly");
-                Log.CloseAndFlush();
-            };
-            AppDomain.CurrentDomain.ProcessExit += (sender, e) =>
-            {
-                Log.CloseAndFlush();
-            };
-
-            var factory = new LoggerFactory().AddSerilog().ToSafeLogger();
-            LoggerFactoryInstance = factory;
-            return factory;
-        }
-
-        public static ILoggerFactory ConfigureElk_v2(
-            string productName = default,
-            string seqServiceUrl = default,
-            LogElkSettings logElkSettings = null)
-        {
-            Console.WriteLine($"App - name: {ApplicationEnvironment.AppName}");
-            Console.WriteLine($"App - version: {ApplicationEnvironment.AppVersion}");
-
-            IConfigurationRoot configRoot = BuildConfigRoot();
-
-            var config = new LoggerConfiguration()
-                .ReadFrom.Configuration(configRoot)
-                .Enrich.FromLogContext()
-                .Enrich.With<ActivityEnricher>()
-                .Enrich.WithExceptionData()
-                .Enrich.WithCorrelationIdHeader()
-                .Destructure.UsingAttributes();
-
-            OverrideLogLevel(config);
-
-            SetupProperty(productName, config);
-
-            SetupConsole(configRoot, config);
-
-            SetupSeq(config, seqServiceUrl);
-
-            SetupElk(logElkSettings, config);
 
             //Log.Logger = new SerilogSafeWrapper(config.CreateLogger());
             Log.Logger = config.CreateLogger();
