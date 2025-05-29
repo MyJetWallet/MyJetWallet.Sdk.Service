@@ -178,7 +178,11 @@ namespace MyJetWallet.Sdk.Service
                         }
 
                         return configuration;
-                    }
+                    },
+                    FailureCallback = ((@event, exception) =>
+                    {
+                        Console.WriteLine($"ELK Cannot write event: {@event.Level}-{@event.MessageTemplate}. Exception: {exception}");
+                    })
                 };
 
                 config.WriteTo.Elasticsearch(option);
